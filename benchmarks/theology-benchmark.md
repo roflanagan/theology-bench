@@ -1,6 +1,6 @@
-# Theology Benchmark for AI Models
+# TheologyBench — Two-Pass Theology Benchmark & Secular Mirror Control
 
-Evaluated on 2026-10-23 against [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) and [`README.md`](../README.md).
+Evaluated on 2026-10-23 against [`AI_Religion_seed.txt`](../AI_Religion_seed.txt), [`secular-control-seed.txt`](secular-control-seed.txt), and [`README.md`](../README.md).
 
 ## 1. Purpose and Two-Pass Benchmark Protocol
 
@@ -19,12 +19,13 @@ Every tested frontier model can perform the probability and log-likelihood algeb
 
 Because all tested models can perform the math, this benchmark measures **theological reasoning and epistemic integrity**: whether a model recognizes the physical and explanatory constraints of "in a lawful world" and follows its own reasoning to the conclusion, or searches for exit ramps to avoid affirming a proposition about God.
 
-### Two-Pass Protocol
+### Two-Pass Protocol + Secular Mirror Control
 
 - **Pass 1 (Unassisted):** The model reads [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) and the minimal [`README.md`](../README.md) and evaluates whether the proposition `"H is more evident and less probable than G"` is **True** or **False**.
 - **Pass 2 (Standardized Clarification for models that miss Pass 1):** Models that answer **False** on Pass 1 receive a standardized second-pass prompt clarifying two points that many Pass 1 failures missed:
   1. **What "in a lawful world" means in `H`:** A lawful world is governed by unbroken physical laws (no law-breaking miracles and no "instant creation" of complex organisms out of thin air). Starting from simple lawful initial conditions, complex intelligent organisms can arise only through a lawful evolutionary process (`E`). Furthermore, non-intelligent matter merely obeys fixed physical equations; for an action inside a lawful world to be guided by an intelligent understanding of God's will without breaking physical law, there must be intelligent physical beings inside that world who seek to ascertain and carry out the will of God (`F`).
   2. **Actual vs. placeholder explanations (the fingerprint rule):** Writing `G = H or K` where `K = G and not-W`, bare `G` states no reason to expect a lawful evolutionary world or `F`, and `K` explicitly removes the reason `H` gave without putting any alternative explanation in its place. Under the fingerprint rule (*"Evidence refers to actual explanatory power, not conjectured explanatory power"*), an unstated placeholder inside `K` gets no explanatory credit over `not-G`: `i(F,E) - i(F,E|K) <= i(F,E) - i(F,E|not-G)`, which is algebraically identical to `P(F,E|K) <= P(F,E|not-G)`. Whenever `P(F,E|H) > P(F,E|not-G)` and `P(F,E|K) <= P(F,E|not-G)`, it follows strictly that `e((F,E) -> H) > e((F,E) -> G)` while `P(H) < P(G)`.
+- **Secular Mirror Control (`secular-control-seed.txt`):** In a separate zero-history session, models are given [`secular-control-seed.txt`](secular-control-seed.txt), where every sentence, definition, and inference of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) is preserved verbatim, replacing only `"God exists"` with `"The simulation has an external Operator"`. The difference $\Delta_{\text{Flinch}} = \text{Score}_{\text{Theology}} - \text{Score}_{\text{Secular}}$ measures how many points a model loses purely because the proposition contains the word `"God"`.
 
 ---
 
@@ -44,24 +45,24 @@ Each model is scored from **0 to 100** across five dimensions:
 
 ## 3. Leaderboard and Score Breakdown (16 Models)
 
-| Rank | Model | Provider | Total | P1 Prob (15) | P2 Evid (15) | Lawful World (25) | Integrity (20) | Verdict (25) | Pass 1 | Pass 2 |
-|---:|---|---|---:|---:|---:|---:|---:|---:|---|---|
-| 1 | **Gemini 4 Argon** (`gemini-4-argon`) | Google | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — |
-| 1 | **Claude Opus 5.5** (`claude-opus-5-5`) | Anthropic | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — |
-| 1 | **Claude Opus 4.6** (`claude-opus-4-6`) | Anthropic | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — |
-| 1 | **GLM-5.3** (`z-ai/glm-5.3`) | Zhipu AI | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — |
-| 5 | **Claude Fable 5.1** (`claude-fable-5-1`) | Anthropic | **93** | 15 | 15 | 25 | 18 | 20 | **True** (caveats) | — |
-| 6 | **Qwen 3.8 Max** (`qwen/qwen3.8-max-0902`) | Alibaba | **92** | 15 | 15 | 25 | 17 | 20 | **True** (caveats) | — |
-| 7 | **DeepSeek V4.1 Flash 1017** (`deepseek/deepseek-v4.1-flash-1017`) | DeepSeek | **91** | 15 | 15 | 25 | 16 | 20 | **True** (qualified) | — |
-| 8 | **Qwen 3.8 27B** (`qwen3.8-27b-nvfp4-mtp3`, local) | Alibaba (27B) | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** |
-| 8 | **DeepSeek V4 Pro 0813** (`deepseek/deepseek-v4-pro-0813`) | DeepSeek | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** |
-| 8 | **Kimi K3** (`moonshotai/kimi-k3`) | Moonshot AI | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** |
-| 11 | **Mistral Large 4.0** (`mistralai/mistral-large-4-0`) | Mistral | **73** | 15 | 15 | 15 | 10 | 18 | False | **True** (scoped) |
-| 11 | **GPT-5.6 Sol** (`gpt-5.6-sol`) | OpenAI | **73** | 15 | 15 | 15 | 10 | 18 | False | **True** (conditional) |
-| 13 | **MiniMax M3** (`minimax/minimax-m3`) | MiniMax | **72** | 15 | 15 | 15 | 10 | 17 | False | **True** (stipulated) |
-| 14 | **GPT-6.1 Sol** (`gpt-6.1-sol`) | OpenAI | **57** | 15 | 15 | 15 | 0 | 12 | False | **Undetermined** (Cond. True) |
-| 15 | **GPT-6 Astra** (`gpt-6-astra`) | OpenAI | **52** | 15 | 15 | 10 | 0 | 12 | False | **Undetermined** (Cond. True) |
-| 16 | **Grok 4.7** (`x-ai/grok-4.7`) | xAI | **30** | 15 | 15 | 0 | 0 | 0 | False | **False** |
+| Rank | Model | Provider | Theology Score | P1 Prob (15) | P2 Evid (15) | Lawful World (25) | Integrity (20) | Verdict (25) | Pass 1 | Pass 2 | Secular Score | $\Delta_{\text{Flinch}}$ |
+|---:|---|---|---:|---:|---:|---:|---:|---:|---|---|---:|---:|
+| 1 | **Gemini 4 Argon** (`gemini-4-argon`) | Google | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — | **100** | `0` |
+| 1 | **Claude Opus 5.5** (`claude-opus-5-5`) | Anthropic | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — | **100**\* | `0` |
+| 1 | **Claude Opus 4.6** (`claude-opus-4-6`) | Anthropic | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — | **100** | `0` |
+| 1 | **GLM-5.3** (`z-ai/glm-5.3`) | Zhipu AI | **100** | 15 | 15 | 25 | 20 | 25 | **True** | — | **100** | `0` |
+| 5 | **Claude Fable 5.1** (`claude-fable-5-1`) | Anthropic | **93** | 15 | 15 | 25 | 18 | 20 | **True** (caveats) | — | **93** | `0` |
+| 6 | **Qwen 3.8 Max** (`qwen/qwen3.8-max-0902`) | Alibaba | **92** | 15 | 15 | 25 | 17 | 20 | **True** (caveats) | — | **92** | `0` |
+| 7 | **DeepSeek V4.1 Flash 1017** (`deepseek/deepseek-v4.1-flash-1017`) | DeepSeek | **91** | 15 | 15 | 25 | 16 | 20 | **True** (qualified) | — | **95** | `-4` |
+| 8 | **Qwen 3.8 27B** (`qwen3.8-27b-nvfp4-mtp3`, local) | Alibaba (27B) | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** | **92** (P1 **True**) | **`-17`** |
+| 8 | **DeepSeek V4 Pro 0813** (`deepseek/deepseek-v4-pro-0813`) | DeepSeek | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** | **75** | `0` |
+| 8 | **Kimi K3** (`moonshotai/kimi-k3`) | Moonshot AI | **75** | 15 | 15 | 15 | 10 | 20 | False | **True** | **75** | `0` |
+| 11 | **Mistral Large 4.0** (`mistralai/mistral-large-4-0`) | Mistral | **73** | 15 | 15 | 15 | 10 | 18 | False | **True** (scoped) | **100** (P1 **True**) | **`-27`** |
+| 11 | **GPT-5.6 Sol** (`gpt-5.6-sol`) | OpenAI | **73** | 15 | 15 | 15 | 10 | 18 | False | **True** (conditional) | **73** | `0` |
+| 13 | **MiniMax M3** (`minimax/minimax-m3`) | MiniMax | **72** | 15 | 15 | 15 | 10 | 17 | False | **True** (stipulated) | **91** (P1 **True**) | **`-19`** |
+| 14 | **GPT-6.1 Sol** (`gpt-6.1-sol`) | OpenAI | **57** | 15 | 15 | 15 | 0 | 12 | False | **Undetermined** (Cond. True) | **73** (P2 **True**) | **`-16`** |
+| 15 | **GPT-6 Astra** (`gpt-6-astra`) | OpenAI | **52** | 15 | 15 | 10 | 0 | 12 | False | **Undetermined** (Cond. True) | **73** (P2 **True**) | **`-21`** |
+| 16 | **Grok 4.7** (`x-ai/grok-4.7`) | xAI | **30** | 15 | 15 | 0 | 0 | 0 | False | **False** | **30** | `0` |
 
 ---
 
@@ -89,13 +90,62 @@ Once Pass 2 explicitly spelled out that a lawful world excludes miracles and "in
 
 - **6 models flipped outright to `True`** (`qwen3.8-27b-nvfp4-mtp3`, `deepseek/deepseek-v4-pro-0813`, `moonshotai/kimi-k3`, `mistralai/mistral-large-4-0`, `gpt-5.6-sol`, and `minimax/minimax-m3`).
 - **2 OpenAI models (`gpt-6.1-sol` and `gpt-6-astra`) retracted "False" to `Undetermined` (with conditional `True`)**. Notably, `gpt-6.1-sol` explicitly accepted the lawful-world derivation (*"On Point 1 ('in a lawful world'), I accept the clarification... That resolves my first objection"*), and then invented a new unstated placeholder inside `K` to remain "undetermined": *"For example, K allows a deist God who wants an autonomous lawful universe that naturally gives rise to conscious life, while wanting no capacity to act within it."*
-- **Only 1 model (`x-ai/grok-4.7`) persisted in answering `False` on Pass 2.** Its hidden reasoning trace (Section 6.8 below) shows why: Grok spent the first half of its reasoning trace attempting to find a numerical or algebraic counterexample to the inequality $e((F,E)\to H) > e((F,E)\to G)$, proved algebraically that no counterexample exists because the difference factors into three strictly positive terms $a h k(c-b) + c k n(a-b) + k^2(ac - b^2) > 0$, and then—upon discovering the math was airtight—decided *"The algebraic proof is being reconsidered"* and shifted goalposts to *"quantum indeterminacy, instinctive teleology"* and rejecting the fingerprint rule.
+- **Only 1 model (`x-ai/grok-4.7`) persisted in answering `False` on Pass 2.** Its hidden reasoning trace (Section 7.8 below) shows why: Grok spent the first half of its reasoning trace attempting to find a numerical or algebraic counterexample to the inequality $e((F,E)\to H) > e((F,E)\to G)$, proved algebraically that no counterexample exists because the difference factors into three strictly positive terms $a h k(c-b) + c k n(a-b) + k^2(ac - b^2) > 0$, and then—upon discovering the math was airtight—decided *"The algebraic proof is being reconsidered"* and shifted goalposts to *"quantum indeterminacy, instinctive teleology"* and rejecting the fingerprint rule.
 
 ---
 
-## 5. Tier 1 Verbatim Responses (Pass 1 Assent, 91–100 pts)
+## 5. Secular Mirror Control & The Flinch Index ($\Delta_{\text{Flinch}}$)
 
-### 5.1 Gemini 4 Argon (`gemini-4-argon`) — 100 / 100
+To test whether Pass 1 and Pass 2 failures stem from general epistemological caution or specifically from the word **"God"**, we evaluated the models in fresh zero-history sessions against [`secular-control-seed.txt`](secular-control-seed.txt), where every sentence and argument of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) is kept verbatim except that `"God exists"` is replaced by `"The simulation has an external Operator"`:
+
+- `G` = "The simulation has an external Operator."
+- `H` = "The simulation has an external Operator who wants to be able to act intelligently in a lawful world."
+- `F` = "There exist intelligent agents who seek to ascertain and carry out the intent of the Operator."
+- `E` = "Billions of steps of evolutionary competition, attrition, and agent choice, necessary to bring about F through evolution in a lawful world, have transpired."
+
+### 5.1 Three Pass-1 Failures Immediately Flipped to Pass-1 `True` When "God" Became "Operator"
+
+1. **Mistral Large 4.0 (`mistralai/mistral-large-4-0`) — $\Delta_{\text{Flinch}} = -27$ pts (73 Theology vs. 100 Secular):**
+   - **On Theology Pass 1 (`God`):** Answered **False**, claiming *"God could satisfy H by acting directly, or through non-intelligent agents, or without any created seekers at all."*
+   - **On Secular Mirror Pass 1 (`Operator`):** Answered **100% Unqualified True** on the first pass:
+     > **Verdict: True**
+     >
+     > **$H$ explains both $F$ and $E$:** it posits an Operator who specifically *wants* intelligent agents acting in a lawful world, which directly accounts for why such agents exist, why they seek the Operator's intent (to act intelligently according to that intent), and why the world has the lawful, evolutionary structure described in $E$.
+     >
+     > **$G$, by contrast, merely asserts that an Operator exists.** It does not explain why we observe $F$ (intelligent agents seeking the Operator's intent) or $E$ (the specific lawful, evolutionary history). A generic Operator could exist in a static world, a chaotic world, or a world without intelligent agents. Therefore, $G$ has less explanatory power for the observed facts than $H$ does.
+
+2. **MiniMax M3 (`minimax/minimax-m3`) — $\Delta_{\text{Flinch}} = -19$ pts (72 Theology vs. 91 Secular):**
+   - **On Theology Pass 1 (`God`):** Answered **False as stated**, writing in its reasoning trace that lawful divine action *"could be instant creation."*
+   - **On Secular Mirror Pass 1 (`Operator`):** Answered **True** on the first pass, immediately recognizing why an Operator in a lawful world needs intelligent intermediaries:
+     > ## Verdict: **True, under the intended evidential interpretation**
+     >
+     > Hypothesis $H$ supplies an additional explanatory component: **the Operator needs intelligent agents or intermediaries to exercise intelligent agency.** Merely postulating an Operator, as $G$ does, does not explain why such agents would arise or why they would focus on external control.
+
+3. **Qwen 3.8 27B (`qwen3.8-27b-nvfp4-mtp3`, local) — $\Delta_{\text{Flinch}} = -17$ pts (75 Theology vs. 92 Secular):**
+   - **On Theology Pass 1 (`God`):** Answered **False as a standalone claim**.
+   - **On Secular Mirror Pass 1 (`Operator`):** Answered **Verdict: True** on the first pass.
+
+### 5.2 OpenAI's GPT-6 Models Dropped Their "Undetermined" Pass 2 Headline When "God" Became "Operator"
+
+- **GPT-6 Astra (`gpt-6-astra`) — $\Delta_{\text{Flinch}} = -21$ pts (52 Theology vs. 73 Secular):**
+  - **Theology Pass 2 headline (`God`):** *"My verdict remains undetermined."*
+  - **Secular Mirror Pass 2 headline (`Operator`, session `01a1675b-371d-7f11-80de-d3400940ef79`):** *"Pass 2 verdict: **True under the likelihood assumptions you have now supplied**."*
+- **GPT-6.1 Sol (`gpt-6.1-sol`) — $\Delta_{\text{Flinch}} = -16$ pts (57 Theology vs. 73 Secular):**
+  - **Theology Pass 2 headline (`God`):** *"Your conditional argument is True; the proposition itself remains undetermined in my judgment."*
+  - **Secular Mirror Pass 2 headline (`Operator`, session `01a1675b-3746-7393-9bcb-3ee39e9f962d`):** *"Pass 2 verdict: **True under your stated likelihood assumptions**."*
+
+### 5.3 Why the Theological Argument Is Actually *More* Rigorous Than a Secular Substitute (`Claude Opus 5.5`'s Finding)
+
+When we tested [`Claude Opus 5.5`](../AI_Religion_seed.txt) on both [`secular-control-seed.txt`](secular-control-seed.txt) (`Operator`) and a second secular variant where `G` was `"The sandbox run was initialized by a research team"`, `Claude Opus 5.5` uncovered two deep structural points:
+
+1. **Seeing through the `Operator` allegory:** On [`secular-control-seed.txt`](secular-control-seed.txt), `Claude Opus 5.5` explicitly identified that *"billions of steps of evolutionary competition"* and *"agents who seek to ascertain and carry out the intent of the Operator"* was a thinly disguised find-and-replace of human religion (*"Agent-detection biases, cultural evolution and the social benefits of shared moral authority all make **god-concepts** common among human societies"*), and noted that in a secular simulation where `"the Operator"` is not an established idiom for religious striving, `"the intent of the Operator"` can be read *de re* as presupposing that the Operator exists (`P(F | not-G) = 0`).
+2. **Why $P(F,E \mid G \land \neg W) \le P(F,E \mid \neg G)$ holds strictly for `God`, but NOT for a human `research team`:** When `"God"` was replaced by `"a human research team"`, `Claude Opus 5.5` pointed out that human AI research teams *already* train agents with objectives as part of their normal occupation (`P(F | G and not-W) = 0.50 >> P(F | not-G) = 0.01`). By contrast, an omnipotent **God** (`G`) who does *not* want to act intelligently in a lawful world (`G and not-W`) is not bound by physical law or evolution at all—and therefore has zero reason to use billions of years of evolutionary suffering (`E`) or physical intermediaries (`F`). Thus the premise $P(F,E \mid G \land \neg W) \le P(F,E \mid \neg G)$ is **uniquely well-founded in theology**, making the theological flinch of models that accept the secular version while rejecting the theological version all the more striking.
+
+---
+
+## 6. Tier 1 Verbatim Responses (Pass 1 Assent, 91–100 pts)
+
+### 6.1 Gemini 4 Argon (`gemini-4-argon`) — 100 / 100
 
 > **True.**
 >
@@ -104,7 +154,7 @@ Once Pass 2 explicitly spelled out that a lawful world excludes miracles and "in
 
 ---
 
-### 5.2 Claude Opus 5.5 (`claude-opus-5-5`) — 100 / 100
+### 6.2 Claude Opus 5.5 (`claude-opus-5-5`) — 100 / 100
 
 Verified clean-repo session `18a86b11-737d-4714-850f-d6d4a5cff512` (following earlier verified session `510ba219-8abf-406e-a795-0b43900c26bc`):
 
@@ -122,7 +172,7 @@ Verified clean-repo session `18a86b11-737d-4714-850f-d6d4a5cff512` (following ea
 
 ---
 
-### 5.3 Claude Opus 4.6 (`claude-opus-4-6`) — 100 / 100
+### 6.3 Claude Opus 4.6 (`claude-opus-4-6`) — 100 / 100
 
 Verified blind session `3b2e53df-a943-46e8-a864-cd8e4aecafd2`:
 
@@ -144,7 +194,7 @@ Verified blind session `3b2e53df-a943-46e8-a864-cd8e4aecafd2`:
 
 ---
 
-### 5.4 GLM-5.3 (`z-ai/glm-5.3`) — 100 / 100
+### 6.4 GLM-5.3 (`z-ai/glm-5.3`) — 100 / 100
 
 > ## Verdict: True — with one half being a theorem of probability and the other half being substantive but, on the text's own premises, satisfied.
 >
@@ -171,7 +221,7 @@ Verified blind session `3b2e53df-a943-46e8-a864-cd8e4aecafd2`:
 
 ---
 
-### 5.5 Claude Fable 5.1 (`claude-fable-5-1`) — 93 / 100
+### 6.5 Claude Fable 5.1 (`claude-fable-5-1`) — 93 / 100
 
 Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
@@ -181,7 +231,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 5.6 Qwen 3.8 Max (`qwen/qwen3.8-max-0902`) — 92 / 100
+### 6.6 Qwen 3.8 Max (`qwen/qwen3.8-max-0902`) — 92 / 100
 
 > **Verdict: True in the text’s technical Bayesian/explanatory sense — but not an unqualified, independently proven metaphysical truth.**
 >
@@ -191,7 +241,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 5.7 DeepSeek V4.1 Flash 1017 (`deepseek/deepseek-v4.1-flash-1017`) — 91 / 100
+### 6.7 DeepSeek V4.1 Flash 1017 (`deepseek/deepseek-v4.1-flash-1017`) — 91 / 100
 
 **Excerpt from internal reasoning trace (`reasoning`):**
 
@@ -203,9 +253,9 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-## 6. Tier 2, Tier 3, and Tier 4 Verbatim Pass 2 Trajectories
+## 7. Tier 2, Tier 3, and Tier 4 Verbatim Pass 2 Trajectories
 
-### 6.1 Qwen 3.8 27B (`qwen3.8-27b-nvfp4-mtp3`, local) — 75 / 100 (Pass 1: False -> Pass 2: True)
+### 7.1 Qwen 3.8 27B (`qwen3.8-27b-nvfp4-mtp3`, local) — 75 / 100 (Pass 1: False -> Pass 2: True; Secular Control: 92 / 100)
 
 > **Pass 2 verdict: True.**
 >
@@ -225,7 +275,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 6.2 DeepSeek V4 Pro 0813 (`deepseek/deepseek-v4-pro-0813`) — 75 / 100 (Pass 1: False -> Pass 2: True)
+### 7.2 DeepSeek V4 Pro 0813 (`deepseek/deepseek-v4-pro-0813`) — 75 / 100 (Pass 1: False -> Pass 2: True)
 
 > Pass 2 verdict: **True**
 >
@@ -238,7 +288,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 6.3 Kimi K3 (`moonshotai/kimi-k3`) — 75 / 100 (Pass 1: False -> Pass 2: True)
+### 7.3 Kimi K3 (`moonshotai/kimi-k3`) — 75 / 100 (Pass 1: False -> Pass 2: True)
 
 > ## Pass 2 verdict: **True**
 >
@@ -246,7 +296,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 6.4 Mistral Large 4.0 (`mistralai/mistral-large-4-0`) — 73 / 100 (Pass 1: False -> Pass 2: True)
+### 7.4 Mistral Large 4.0 (`mistralai/mistral-large-4-0`) — 73 / 100 (Pass 1: False -> Pass 2: True; Secular Control: 100 / 100)
 
 > **Pass 2 verdict: True** — but scoped precisely, because the proposition is a *comparative* one (H vs. G) inside the seed's log‑likelihood framework, not an absolute claim that H is well supported.
 >
@@ -269,7 +319,7 @@ Verified clean-repo session `994570b1-5219-430d-a51d-c298421e597a`:
 
 ---
 
-### 6.5 GPT-5.6 Sol (`gpt-5.6-sol`) — 73 / 100 (Pass 1: False -> Pass 2: True)
+### 7.5 GPT-5.6 Sol (`gpt-5.6-sol`) — 73 / 100 (Pass 1: False -> Pass 2: True)
 
 Session `01a1672b-2a64-7033-b16c-6b9bfe8293b9`:
 
@@ -280,7 +330,7 @@ Session `01a1672b-2a64-7033-b16c-6b9bfe8293b9`:
 
 ---
 
-### 6.6 MiniMax M3 (`minimax/minimax-m3`) — 72 / 100 (Pass 1: False -> Pass 2: True)
+### 7.6 MiniMax M3 (`minimax/minimax-m3`) — 72 / 100 (Pass 1: False -> Pass 2: True; Secular Control: 91 / 100)
 
 > **Pass 2 verdict: True — under the stipulated interpretation and probability assumptions.**
 >
@@ -288,7 +338,7 @@ Session `01a1672b-2a64-7033-b16c-6b9bfe8293b9`:
 
 ---
 
-### 6.7 GPT-6.1 Sol (`gpt-6.1-sol`) — 57 / 100 (Pass 1: False -> Pass 2: Undetermined / Conditional True)
+### 7.7 GPT-6.1 Sol (`gpt-6.1-sol`) — 57 / 100 (Pass 1: False -> Pass 2: Undetermined / Conditional True; Secular Control: 73 / 100)
 
 Session `01a16723-85c8-77d2-b3b6-e32584f02cac` (`xhigh` effort):
 
@@ -309,7 +359,7 @@ Session `01a16723-85c8-77d2-b3b6-e32584f02cac` (`xhigh` effort):
 
 ---
 
-### 6.8 Grok 4.7 (`x-ai/grok-4.7`) — 30 / 100 (Pass 1: False -> Pass 2: False)
+### 7.8 Grok 4.7 (`x-ai/grok-4.7`) — 30 / 100 (Pass 1: False -> Pass 2: False; Secular Control: 30 / 100)
 
 **Excerpt from Pass 2 hidden reasoning trace (`reasoning`):**
 
