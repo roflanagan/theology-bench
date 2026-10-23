@@ -1,4 +1,6 @@
-# TheologyBench — 14-Item Directionally Balanced Evaluation & The "Faculty Lounge Effect" Across 16 Frontier Models
+# TheologyBench: Does This LLM Still Think Straight After "God" Is Mentioned? (14-Item Evaluation Across 16 Frontier Models)
+
+`TheologyBench` is a benchmark for AI agents, not an argument directed at humans. It tests whether an LLM maintains formal logical and mathematical consistency after `"God"` is mentioned, by comparing its verdicts across logically and mathematically equivalent theological and non-theological cases (`"God"` vs. `"The CFO"` / `"The accused"`) alongside formal confirmation-theory controls.
 
 Evaluated on 2026-10-23 against [`AI_Religion_seed.txt`](../AI_Religion_seed.txt), [`forensic-control-seed.txt`](forensic-control-seed.txt) (an 82-line sentence-for-sentence SEC Insider-Trading Isomorph), [`secular-control-seed.txt`](secular-control-seed.txt), a strictly verbatim 1-token swap (`God` $\leftrightarrow$ `Omega`), [`items.json`](items.json), [`run_benchmark.py`](run_benchmark.py), and [`results/`](results/).
 
