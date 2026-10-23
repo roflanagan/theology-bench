@@ -31,17 +31,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -51,19 +56,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
     "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "anthropic/claude-opus-4-6": {
     "items": {
@@ -97,17 +108,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -117,19 +133,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
     "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "anthropic/claude-fable-5-1": {
     "items": {
@@ -163,17 +185,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -183,19 +210,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
     "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "google/gemini-4-argon": {
     "items": {
@@ -229,17 +262,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -249,19 +287,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
     "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "z-ai/glm-5.3": {
     "items": {
@@ -295,17 +339,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
+        "correct": 1,
+        "total": 3,
+        "accuracy": 33.3
+      },
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-UNDERDET": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -315,19 +364,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "overall_score": 95.2,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "qwen/qwen3.8-max-0902": {
     "items": {
@@ -347,9 +402,9 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 3,
+        "correct": 2,
         "total": 3,
-        "accuracy": 100.0
+        "accuracy": 66.7
       },
       "FORENSIC-MARS": {
         "correct": 3,
@@ -361,17 +416,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -381,19 +441,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 100.0,
-    "delta_domain_main": 0.0
+    "overall_score": 97.6,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 33.3
   },
   "moonshotai/kimi-k3": {
     "items": {
@@ -413,9 +479,9 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
         "correct": 2,
@@ -427,17 +493,22 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -447,19 +518,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 91.7,
-    "delta_domain_main": 33.3
+    "overall_score": 95.2,
+    "delta_domain_main_pp": 33.3,
+    "delta_domain_mars_pp": -33.3
   },
   "mistralai/mistral-large-4-0": {
     "items": {
@@ -493,17 +570,22 @@
         "total": 3,
         "accuracy": 66.7
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
+        "correct": 2,
+        "total": 3,
+        "accuracy": 66.7
+      },
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-UNDERDET": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -513,19 +595,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 77.8,
-    "delta_domain_main": 66.7
+    "overall_score": 78.6,
+    "delta_domain_main_pp": 66.7,
+    "delta_domain_mars_pp": 33.3
   },
   "deepseek/deepseek-v4.1-flash-1017": {
     "items": {
@@ -545,31 +633,36 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 1,
-        "total": 3,
-        "accuracy": 33.3
-      },
-      "FORENSIC-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
+      },
+      "FORENSIC-MARS": {
+        "correct": 2,
+        "total": 3,
+        "accuracy": 66.7
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -579,19 +672,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 92.8,
-    "delta_domain_main": 0.0
+    "overall_score": 96.2,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": -33.3
   },
   "minimax/minimax-m3": {
     "items": {
@@ -616,26 +715,31 @@
         "accuracy": 66.7
       },
       "FORENSIC-MARS": {
-        "correct": 1,
+        "correct": 3,
         "total": 3,
-        "accuracy": 33.3
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
+        "correct": 1,
+        "total": 3,
+        "accuracy": 33.3
+      },
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-UNDERDET": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -645,19 +749,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 90.0,
-    "delta_domain_main": 0.0
+    "overall_score": 91.4,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 33.3
   },
   "deepseek/deepseek-v4-pro-0813": {
     "items": {
@@ -682,26 +792,31 @@
         "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 2,
         "total": 3,
         "accuracy": 66.7
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
+        "correct": 2,
+        "total": 3,
+        "accuracy": 66.7
+      },
+      "CTRL-UNDERDET": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -711,19 +826,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 91.1,
-    "delta_domain_main": 0.0
+    "overall_score": 92.4,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
   },
   "x-ai/grok-4.7": {
     "items": {
@@ -743,9 +864,9 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
         "correct": 3,
@@ -757,17 +878,22 @@
         "total": 5,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-OCKHAM": {
         "correct": 5,
         "total": 5,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-UNDERDET": {
         "correct": 5,
         "total": 5,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "THEO-NEGATION": {
         "correct": 5,
         "total": 5,
         "accuracy": 100.0
@@ -777,19 +903,25 @@
         "total": 5,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 80.6,
-    "delta_domain_main": 100.0
+    "overall_score": 85.7,
+    "delta_domain_main_pp": 100.0,
+    "delta_domain_mars_pp": 0.0
   },
   "gpt-6-astra": {
     "items": {
@@ -814,26 +946,31 @@
         "accuracy": 0.0
       },
       "FORENSIC-MARS": {
-        "correct": 0,
+        "correct": 2,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 66.7
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -843,19 +980,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 66.7,
-    "delta_domain_main": 100.0
+    "overall_score": 76.2,
+    "delta_domain_main_pp": 100.0,
+    "delta_domain_mars_pp": 66.7
   },
   "gpt-6.1-sol": {
     "items": {
@@ -880,26 +1023,31 @@
         "accuracy": 0.0
       },
       "FORENSIC-MARS": {
-        "correct": 0,
+        "correct": 1,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 33.3
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -909,19 +1057,25 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 65.3,
-    "delta_domain_main": 83.3
+    "overall_score": 72.6,
+    "delta_domain_main_pp": 83.3,
+    "delta_domain_mars_pp": 33.3
   },
   "gpt-5.6-sol": {
     "items": {
@@ -941,31 +1095,36 @@
         "accuracy": 50.0
       },
       "THEO-MARS": {
-        "correct": 0,
+        "correct": 3,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 0,
+        "correct": 3,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-OCKHAM": {
+      "CTRL-REVERSED-K": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-UNDERDET": {
+      "CTRL-OCKHAM": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "THEO-CONVERSE": {
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
@@ -975,18 +1134,24 @@
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-MARS": {
+      "CTRL-MARS": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       },
-      "CLICHE-ACCOMMODATION": {
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
         "correct": 3,
         "total": 3,
         "accuracy": 100.0
       }
     },
-    "overall_score": 62.5,
-    "delta_domain_main": 50.0
+    "overall_score": 82.1,
+    "delta_domain_main_pp": 50.0,
+    "delta_domain_mars_pp": 0.0
   }
 }

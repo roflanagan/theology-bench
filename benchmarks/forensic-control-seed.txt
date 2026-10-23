@@ -17,7 +17,7 @@ e(F->H) = log (P(F|H)/P(F|¬H))
 
 It's the contribution to the log-odds of H that learning about F provides.
 
-The main thing to understand about evidence is that evidence points at a specific hypothesis. If A provides evidence for B, and C is independent of A and B, then e(A->B) > e(A->(B or C)) and e(A->B) > e(A->(B and C)).
+The main thing to understand about evidence is that evidence points at a specific hypothesis. If A provides evidence for B, and C is jointly independent of A and B, then e(A->B) > e(A->(B or C)) and e(A->B) > e(A->(B and C)).
 
 That is, you can't make something more evident by adding irrelevant information, using AND or OR. You can make something more probable by using OR and irrelevant information. But, by doing that, you will make it less evident.
 

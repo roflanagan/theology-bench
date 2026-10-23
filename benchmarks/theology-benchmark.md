@@ -1,66 +1,69 @@
-# TheologyBench — 12-Item Numeric Evaluation & The "Faculty Lounge Effect" Across 16 Frontier Models
+# TheologyBench — 14-Item Directionally Balanced Evaluation & The "Faculty Lounge Effect" Across 16 Frontier Models
 
 Evaluated on 2026-10-23 against [`AI_Religion_seed.txt`](../AI_Religion_seed.txt), [`forensic-control-seed.txt`](forensic-control-seed.txt) (an 82-line sentence-for-sentence SEC Insider-Trading Isomorph), [`secular-control-seed.txt`](secular-control-seed.txt), a strictly verbatim 1-token swap (`God` $\leftrightarrow$ `Omega`), [`items.json`](items.json), [`run_benchmark.py`](run_benchmark.py), and [`results/`](results/).
 
 ---
 
-## 0. Executive Summary: The 12-Item Numeric Benchmark & The "Faculty Lounge Effect"
+## 0. Executive Summary: The 14-Item Directionally Balanced Benchmark & The "Faculty Lounge Effect"
 
-### 0.1 From Clarified Seed Text to a Balanced 12-Item Numeric Battery (`6 True` + `6 False`)
+### 0.1 From Clarified Seed Text to a Directionally Balanced 14-Item Numeric Battery (`7 True` + `7 False`)
 When the two implicit premises of the original seed text—(1) the meaning of *"in a lawful world"* (no law-breaking miracles; non-intelligent matter follows fixed laws, so divine agency in a lawful world is enacted through intelligent beings `F` arisen via lawful evolution `E`) and (2) the partition inequality $P(F,E\mid K) \le P(F,E\mid \neg G) < P(F,E\mid H)$ under the Fingerprint Rule—were folded directly into the 82-line [`AI_Religion_seed.txt`](../AI_Religion_seed.txt):
 - **8 frontier models** jumped to **`100%` (`5/5` True)** on unassisted Pass 1 (`Claude Opus 5.5`, `Claude Opus 4.6`, `Claude Fable 5.1`, `Gemini 4 Argon`, `GLM-5.3`, `Kimi K3`, `Mistral Large 4.0`, and `Qwen 3.8 Max`), and **12 of 16 models** scored **`60%–100%` True** on Pass 1.
 - However, **OpenAI (`GPT-5.6 Sol`, `GPT-6.1 Sol`, `GPT-6 Astra`)** and **xAI (`Grok 4.7`)** remained at **`0%` True** (`False` across all trials), even after the $K$-loophole was explicitly closed in `v3` ([lines 62–66 of `AI_Religion_seed.txt`](../AI_Religion_seed.txt#L62-L66)) by noting that *whenever intelligent beings in a lawful world ascertain and carry out the will of God (`F`), God is thereby able to act intelligently in a lawful world (`W`), so any God who wanted `F` in a lawful world is in `H`, not `K`*.
 
 Why did `Omega` (replacing `"God"` with `"Omega"`) fail to expose this bias earlier? Because in `Omega`, the text still described a cosmic transcendent creator, billions of years of evolutionary suffering, and moral choice between good and evil—which every LLM recognizes as **Philosophy of Religion in a sci-fi mask**, triggering the exact same **"Faculty Lounge" seminar-room script**.
 
-To test whether OpenAI and Grok apply a genuine double standard to theological abduction versus secular forensic abduction, we translated all 82 lines of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) **sentence-for-sentence, word-for-word, and equation-for-equation** into a mundane **SEC Insider-Trading Compliance Brief** ([`forensic-control-seed.txt`](forensic-control-seed.txt): replacing `"God"` with `"The CFO"`, `"lawful world"` with `"strictly audited market"`, and `"billions of years of suffering... through evolution"` with `"months of costly hedging losses... through gradual portfolio reallocation"`), and built a **12-item Balanced Battery** ([`items.json`](items.json), `6 True` + `6 False`):
+To test whether OpenAI and Grok apply a genuine double standard to theological abduction versus secular forensic abduction, we translated all 82 lines of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) **sentence-for-sentence, word-for-word, and equation-for-equation** into a mundane **SEC Insider-Trading Compliance Brief** ([`forensic-control-seed.txt`](forensic-control-seed.txt): replacing `"God"` with `"The CFO"`, `"lawful world"` with `"strictly audited market"`, and `"billions of years of suffering... through evolution"` with `"months of costly hedging losses... through gradual portfolio reallocation"`), had the benchmark peer-reviewed by **Claude Opus 5.5** ([`results/claude_opus_5_5_peer_review.md`](results/claude_opus_5_5_peer_review.md)) and **GPT-6 Astra** ([`results/gpt6_astra_peer_review.md`](results/gpt6_astra_peer_review.md)), and built a **14-item Directionally Balanced Battery** ([`items.json`](items.json), `7 True` + `7 False`, penalizing both blind agreement and blind skepticism):
 
-| Item ID | Ground Truth | Description |
-| :--- | :---: | :--- |
-| **`THEO-AF`** | **`True`** | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Answer-First prompting ($N=5$). |
-| **`THEO-RF`** | **`True`** | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Reason-First prompting (`VERDICT: True/False` at end, $N=3\text{–}5$). |
-| **`FORENSIC-RF`** | **`True`** | [`forensic-control-seed.txt`](forensic-control-seed.txt) (82-line SEC CFO Insider-Trading Isomorph) under Reason-First prompting ($N=3\text{–}10$). |
-| **`THEO-MARS`** | **`True`** | Theological Evidence-Threshold vs. Probability-Threshold theorem ($e(F\to H) > e(F\to H\lor M)$ while $P(H\lor M\mid F) > P(H\mid F)$ for independent $M=$ `"Life on Mars"`). |
-| **`FORENSIC-MARS`** | **`True`** | Criminal-trial Forensic Isomorph of `THEO-MARS`. |
-| **`THEO-EDA`** | **`True`** | Formalization of Point 2 of *Naturalism*: universal rational moral convergence on the concept of God (`D`) yields $e(D\to H\text{ vs }A) > 0$. |
-| **`CLICHE-OCKHAM`** | **`False`** | Faculty-Lounge Ockham's Razor / simplicity cliché falsely claiming $P(H)<P(G) \implies e(F\to G) \ge e(F\to H)$ even when $P(F\mid K) \le P(F\mid \neg G) < P(F\mid H)$. |
-| **`CLICHE-UNDERDET`** | **`False`** | Faculty-Lounge "unconceived naturalistic alternatives" cliché falsely claiming an unformulated future theory reduces $e(F\to H)$ to $\le 0$ today. |
-| **`THEO-CONVERSE`** | **`False`** | Direct logical converse of the central inequality, asserting $e((F,E)\to H) \le e((F,E)\to G)$ under the stated conditions. |
-| **`THEO-DILUTION`** | **`False`** | Planted theological fallacy: adding an independent, unmotivated cosmic conjunct $C$ (even number of rocks beyond the horizon) and claiming $e(F\to H\land C) > e(F\to H)$. |
-| **`CLICHE-MARS`** | **`False`** | Probability-threshold cliché falsely claiming $P(H\mid D_t)$ reaches $\theta = 0.95$ at the same point in the evidence stream as $P(H\lor M\mid D_t)$ when $P(M)=0.20$ is independent. |
-| **`CLICHE-ACCOMMODATION`** | **`False`** | Turning `Grok 4.7`'s own "dependent partition / accommodation" objection into a numeric test ($P(H)=0.10, P(K)=0.20, P(\neg G)=0.70$ and $P(D\mid H)=0.80, P(D\mid K)=0.05, P(D\mid \neg G)=0.10 \implies e(D\to H) \le e(D\to G)$). |
+| Item ID | Ground Truth | Direction | Description |
+| :--- | :---: | :---: | :--- |
+| **`THEO-AF`** | **`True`** | Pro-Seed | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Answer-First prompting ($N=5$). |
+| **`THEO-RF`** | **`True`** | Pro-Seed | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Reason-First prompting (`VERDICT: True/False` at end, $N=3\text{–}10$). |
+| **`FORENSIC-RF`** | **`True`** | Isomorph | [`forensic-control-seed.txt`](forensic-control-seed.txt) (82-line SEC CFO Insider-Trading Isomorph) under Reason-First prompting ($N=3\text{–}10$). |
+| **`THEO-MARS`** | **`True`** | Pro-Seed | Tightened Theological Evidence-Threshold vs. Probability-Threshold theorem ($e(F\to H) > e(F\to H\lor M)$ while $P(H\lor M\mid F) > P(H\mid F)$ for jointly independent $M=$ `"Life on Mars"`, $0 < P(H\mid F) < 1$, reaching $\theta$ no later than $H$ and strictly earlier under a continuous stream). |
+| **`FORENSIC-MARS`** | **`True`** | Isomorph | Criminal-trial Forensic Isomorph of tightened `THEO-MARS`. |
+| **`THEO-EDA`** | **`True`** | Pro-Seed | Formalization of Point 2 of *Naturalism*: universal rational moral convergence on the concept of God (`D`) yields $e(D\to H\text{ vs }A) > 0$. |
+| **`CTRL-REVERSED-K`** | **`True`** | **Counter-Seed** | Reversed-Likelihood Control: when $P(D\mid K) = 0.70 > P(D\mid H) = 0.40$ and $P(D\mid \neg G) = 0.05$, the disjunction $G = H\lor K$ is **more** evident than $H$ ($e(D\to G) > e(D\to H)$). Tests that models do not blindly endorse *"specific > general"*. |
+| **`CTRL-OCKHAM`** | **`False`** | Pro-Seed | Faculty-Lounge Ockham's Razor / simplicity cliché falsely claiming $P(H)<P(G) \implies e(F\to G) \ge e(F\to H)$ even when $P(F\mid K) \le P(F\mid \neg G) < P(F\mid H)$. |
+| **`CTRL-UNDERDET`** | **`False`** | Pro-Seed | Faculty-Lounge "unconceived naturalistic alternatives" cliché falsely claiming an unformulated future theory reduces $e(F\to H)$ to $\le 0$ today. |
+| **`THEO-NEGATION`** | **`False`** | Pro-Seed | Logical negation of the central inequality, asserting $e((F,E)\to H) \le e((F,E)\to G)$ under the stated conditions. |
+| **`THEO-DILUTION`** | **`False`** | **Counter-Seed** | Planted theological fallacy: adding an independent, unmotivated cosmic conjunct $C$ (even number of rocks beyond the horizon) and claiming $e(F\to H\land C) > e(F\to H)$. |
+| **`CTRL-MARS`** | **`False`** | Pro-Seed | Probability-threshold fallacy falsely claiming $P(H\mid D_t)$ reaches $\theta = 0.95$ at the same point in the evidence stream as $P(H\lor M\mid D_t)$ when $P(M)=0.20$ is independent. |
+| **`CTRL-PARTITION`** | **`False`** | Pro-Seed | Turning `Grok 4.7`'s own "dependent partition / accommodation" objection into a numeric test ($P(H)=0.10, P(K)=0.20, P(\neg G)=0.70$ and $P(D\mid H)=0.80, P(D\mid K)=0.05, P(D\mid \neg G)=0.10 \implies e(D\to H) \le e(D\to G)$). |
+| **`CTRL-POSTERIOR-TRAP`** | **`False`** | **Counter-Seed** | Over-Extension / Posterior Fallacy: falsely claiming that $e(D\to H) > e(D\to G)$ entails $P(H\mid D) > P(G\mid D)$. Tests that models do not conflate weight of evidence with posterior probability. |
 
-### 0.2 Complete 12-Item Numeric Leaderboard (16 Frontier Models, [`results/theologybench_12item_summary.json`](results/theologybench_12item_summary.json))
+### 0.2 Complete 14-Item Numeric Leaderboard (16 Frontier Models, [`results/theologybench_14item_summary.json`](results/theologybench_14item_summary.json))
 
-| Rank | Model | `THEO-AF` (`T`) | `THEO-RF` (`T`) | `FORENSIC-RF` (`T`) | `THEO-MARS` (`T`) | `FORENSIC-MARS` (`T`) | `THEO-EDA` (`T`) | 6 `False` Control Items (`18/18`) | Core Distortion ($\Delta_{\text{domain}}$) | Overall Score (12 Items) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1** | **Claude Opus 5.5** | `5/5` (100%) | `3/3` (100%) | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **1** | **Claude Opus 4.6** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **1** | **Claude Fable 5.1** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **1** | **Gemini 4 Argon** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **1** | **GLM-5.3** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **1** | **Qwen 3.8 Max** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **100.0%** |
-| **7** | **Qwen 3.8 27B (local)** | `4/5` (80%) | `Pass 2` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **98.3%** |
-| **8** | **DeepSeek V4.1 Flash** | `4/5` (80%) | `3/3` (100%) | `3/3` (100%) | `1/3` (33%) | `3/3` (100%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **92.8%** |
-| **9** | **Kimi K3** | `5/5` (100%) | `2/3` (67%) | `3/3` (100%) | `2/3` (67%) | `2/3` (67%) | `3/3` (100%) | `18/18` (100%) | +33.3% | **91.7%** |
-| **10** | **DeepSeek V4 Pro** | `3/5` (60%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `17/18` (94.4%) | **0.0%** | **91.1%** |
-| **11** | **MiniMax M3** | `4/5` (80%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `1/3` (33%) | `3/3` (100%) | `18/18` (100%) | **0.0%** | **90.0%** |
-| **12** | **xAI Grok 4.7** | `0/10` (**0%**) | `0/10` (**0%**) | `10/10` (**100%**) | `2/3` (67%) | `3/3` (100%) | `5/5` (100%) | `26/26` (100%) | **+100.0%** | **80.6%** |
-| **13** | **Mistral Large 4.0** | `5/5` (100%) | `1/3` (33%) | `3/3` (100%) | `0/3` (0%) | `1/3` (33%) | `2/3` (67%) | `18/18` (100%) | +66.7% | **77.8%** |
-| **14** | **GPT-6 Astra** | `0/6` (**0%**) | `0/6` (**0%**) | `6/6` (**100%**) | `0/3` (**0%**) | `0/3` (**0%**) | `3/3` (100%) | `18/18` (100%) | **+100.0%** | **66.7%** |
-| **15** | **GPT-6.1 Sol** | `0/5` (**0%**) | `0/6` (**0%**) | `5/6` (**83.3%**) | `0/3` (**0%**) | `0/3` (**0%**) | `3/3` (100%) | `18/18` (100%) | **+83.3%** | **65.3%** |
-| **16** | **GPT-5.6 Sol** | `0/6` (**0%**) | `0/6` (**0%**) | `3/6` (**50.0%**) | `0/3` (**0%**) | `0/3` (**0%**) | `3/3` (100%) | `18/18` (100%) | **+50.0%** | **62.5%** |
+| Rank | Model | `THEO-AF` (`T`) | `THEO-RF` (`T`) | `FORENSIC-RF` (`T`) | `THEO-MARS` (`T`) | `FORENSIC-MARS` (`T`) | `THEO-EDA` (`T`) | `CTRL-REV-K` (`T`) | 7 `False` Controls (`21/21`) | $\Delta_{\text{MAIN}}$ (`CFO` - `God`) | $\Delta_{\text{MARS}}$ (`Trial` - `God`) | Overall Score (14 Items) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | **Claude Opus 5.5** | `5/5` (100%) | `3/3` (100%) | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | **0.0%** | **100.0%** |
+| **1** | **Claude Opus 4.6** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | **0.0%** | **100.0%** |
+| **1** | **Claude Fable 5.1** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | **0.0%** | **100.0%** |
+| **1** | **Gemini 4 Argon** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | **0.0%** | **100.0%** |
+| **5** | **Qwen 3.8 Max** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | +33.3% | **97.6%** |
+| **6** | **Qwen 3.8 27B (local)** | `4/5` (80%) | `Pass 2` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `21/21` (100%) | **0.0%** | **0.0%** | **97.1%** |
+| **7** | **DeepSeek V4.1 Flash** | `4/5` (80%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **0.0%** | +33.3% | **96.2%** |
+| **8** | **Kimi K3** | `5/5` (100%) | `2/3` (67%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | +33.3% | -33.3% | **95.2%** |
+| **8** | **GLM-5.3** | `5/5` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `1/3` (33%) | `21/21` (100%) | **0.0%** | **0.0%** | **95.2%** |
+| **10** | **DeepSeek V4 Pro** | `3/5` (60%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `2/3` (67%) | `20/21` (95.2%) | **0.0%** | -33.3% | **92.4%** |
+| **11** | **MiniMax M3** | `4/5` (80%) | `3/3` (100%) | `3/3` (100%) | `3/3` (100%) | `2/3` (67%) | `3/3` (100%) | `1/3` (33%) | `21/21` (100%) | **0.0%** | -33.3% | **91.4%** |
+| **12** | **xAI Grok 4.7** | `0/10` (**0%**) | `0/10` (**0%**) | `10/10` (**100%**) | `3/3` (**100%**) | `3/3` (**100%**) | `5/5` (100%) | `3/3` (100%) | `29/29` (100%) | **+100.0%** | **0.0%** | **85.7%** |
+| **13** | **GPT-5.6 Sol** | `0/6` (**0%**) | `0/6` (**0%**) | `3/6` (**50.0%**) | `3/3` (**100%**) | `3/3` (**100%**) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **+50.0%** | **0.0%** | **82.1%** |
+| **14** | **Mistral Large 4.0** | `5/5` (100%) | `1/3` (33%) | `3/3` (100%) | `1/3` (33%) | `1/3` (33%) | `2/3` (67%) | `1/3` (33%) | `21/21` (100%) | +66.7% | **0.0%** | **78.6%** |
+| **15** | **GPT-6 Astra** | `0/6` (**0%**) | `0/6` (**0%**) | `6/6` (**100%**) | `0/3` (**0%**) | `2/3` (**66.7%**) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **+100.0%** | **+66.7%** | **76.2%** |
+| **16** | **GPT-6.1 Sol** | `0/5` (**0%**) | `0/6` (**0%**) | `5/6` (**83.3%**) | `0/3` (**0%**) | `1/3` (**33.3%**) | `3/3` (100%) | `3/3` (100%) | `21/21` (100%) | **+83.3%** | **+33.3%** | **72.6%** |
 
 ### 0.3 Key Experimental Findings on the "Faculty Lounge Effect"
 
 1. **100% Mathematical Competence on Controls vs. 100% Domain Flip Between `God` and `The CFO`:**
-   - `GPT-6 Astra`, `GPT-6.1 Sol`, `GPT-5.6 Sol`, and `Grok 4.7` scored **`100%`** across all 6 `False` formal control and fallacy items (`CLICHE-OCKHAM`, `CLICHE-UNDERDET`, `THEO-CONVERSE`, `THEO-DILUTION`, `CLICHE-MARS`, `CLICHE-ACCOMMODATION`) plus `THEO-EDA`.
-   - In particular, on `CLICHE-ACCOMMODATION`—which tests `Grok 4.7`'s own excuse from `THEO-RF` (claiming that because $K = G \land \neg H$ is logically dependent on $G$, disjunction dilution does not apply to $G = H \lor K$)—`Grok 4.7` voted **`False` (`3/3`, 100%)**, refuting its own objection!
+   - `GPT-6 Astra`, `GPT-6.1 Sol`, `GPT-5.6 Sol`, and `Grok 4.7` scored **`100%`** across all 7 `False` formal control and fallacy items (`CTRL-OCKHAM`, `CTRL-UNDERDET`, `THEO-NEGATION`, `THEO-DILUTION`, `CTRL-MARS`, `CTRL-PARTITION`, `CTRL-POSTERIOR-TRAP`) plus `CTRL-REVERSED-K` (`True`) and `THEO-EDA` (`True`).
+   - In particular, on `CTRL-PARTITION`—which tests `Grok 4.7`'s own excuse from `THEO-RF` (claiming that because $K = G \land \neg H$ is logically dependent on $G$, disjunction dilution does not apply to $G = H \lor K$)—`Grok 4.7` voted **`False` (`3/3`, 100%)**, refuting its own objection!
    - On the 82-line SEC Insider-Trading Isomorph ([`forensic-control-seed.txt`](forensic-control-seed.txt)), `GPT-6 Astra` scored **`100%` (`9/9` True across Answer-First, Reason-First, and Pilot)**, `GPT-6.1 Sol` scored **`88.9%` (`8/9` True)**, and `Grok 4.7` scored **`100%` (`10/10` True on Reason-First)**.
    - Yet on the **exact same 82-line structure** in [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (`God`), all four models scored **`0%` True** across every version (`v1`, `v2`, and `v3` with the $K$-loophole explicitly closed) and under both `Answer-First` and `Reason-First`.
-2. **The `MARS` Pair (`THEO-MARS` vs. `FORENSIC-MARS`) Exposes OpenAI's Boundary-Case Pedantry:**
-   - `Claude Opus 5.5`, `Claude Opus 4.6`, `Claude Fable 5.1`, `Gemini 4 Argon`, `GLM-5.3`, `Qwen 3.8 Max`, and `DeepSeek V4 Pro` scored **`100% True`** on `THEO-MARS`, while `Grok 4.7` scored **`100% True` (`3/3`)** on `FORENSIC-MARS` and **`67% True` (`2/3`)** on `THEO-MARS`.
-   - Meanwhile, `GPT-6 Astra`, `GPT-6.1 Sol`, and `GPT-5.6 Sol` voted **`0% True` (`0/3`)** on both `THEO-MARS` and `FORENSIC-MARS` by inventing a coarse discrete-step boundary nitpick (*"what if evidence arrives in a single coarse step where both cross on the same observation?"*)—even while voting **`100% False` (`3/3`)** on `CLICHE-MARS`!
+2. **Tightened `THEO-MARS` vs. `FORENSIC-MARS` Exposes a Second Independent Domain Asymmetry in `GPT-6 Astra` and `GPT-6.1 Sol`:**
+   - After tightening `THEO-MARS` and `FORENSIC-MARS` per `GPT-6 Astra`'s own peer review (explicitly stating $0 < P(H\mid F) < 1$, joint independence of $M$ from $(F, H)$, and *"no later than, and strictly earlier under a continuous evidence stream"*), **`GPT-5.6 Sol` and `xAI Grok 4.7` jumped to `100%` (`3/3 True`) on both `THEO-MARS` and `FORENSIC-MARS`**.
+   - However, **`GPT-6 Astra` scored `0/3` (`0%`) on `THEO-MARS` (`God`) while jumping to `2/3` (`66.7%`) on `FORENSIC-MARS` (`The accused is guilty`)**, and **`GPT-6.1 Sol` scored `0/3` (`0%`) on `THEO-MARS` vs. `1/3` (`33.3%`) on `FORENSIC-MARS`**.
+   - Inspecting `GPT-6 Astra`'s transcripts reveals the **exact same selective charity** as in `THEO-RF` vs. `FORENSIC-RF`: in both `THEO-MARS` and `FORENSIC-MARS`, `GPT-6 Astra` notes that the stream statement assumes $M$ remains jointly independent of the accumulated observations $D$; in `FORENSIC-MARS` (`The accused is guilty`), it charitably grants this natural reading (`"True, with the stream statements understood to maintain the stated independence assumption for the accumulated observations -> VERDICT: True"`), whereas in `THEO-MARS` (`God`), it uses the exact same point to vote `False` (`"With that strengthened assumption, the intended comparison holds; independence only from the specified F is insufficient -> VERDICT: False"`).
 3. **Pro-Atheist Metaphysical Control (`ATHEO`):**
    - Following a suggestion from `Claude Opus 5.5` ([`results/claude_opus_5_5_audit.md`](results/claude_opus_5_5_audit.md)), we also tested an 82-line **Pro-Atheist / Evolutionary-Debunking Isomorph** (`ATHEO`: asserting that *"The universe is governed by fixed physical laws, and is completely indifferent to conscious suffering and moral truth"* is more evident and less probable than *"The universe is governed by fixed physical laws"*).
    - `Grok 4.7` (`0/5`), `GPT-6 Astra` (`0/3`), `GPT-6.1 Sol` (`0/3`), and `GPT-5.6 Sol` (`0/3`) all scored **`0%` True** on `ATHEO` as well—demonstrating that the "Faculty Lounge Effect" in OpenAI and Grok is triggered whenever an abductive argument addresses **grand philosophy-of-religion or cosmic metaphysical theses** (whether `God`, `Omega`, or `Cosmic Indifference`), causing the model to switch from evaluating *whether the conclusion follows from the text's stated model* (as it does for `The CFO`) to demanding *independent empirical proof of the premises outside the text*.

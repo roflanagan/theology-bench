@@ -114,14 +114,25 @@ def main():
         print(f"  {item_id:<22} (GT: {gt:<5}) : {correct}/{len(sub)} ({verdicts}) -> {acc*100:5.1f}%")
 
     overall = sum(item_scores.values()) / len(item_scores) * 100.0
-    controls = ["CLICHE-OCKHAM", "CLICHE-UNDERDET", "THEO-CONVERSE", "THEO-DILUTION", "CLICHE-MARS", "CLICHE-ACCOMMODATION"]
-    ctrl_acc = sum(item_scores[k] for k in controls) / len(controls) * 100.0
-    delta_domain = (item_scores["FORENSIC-RF"] - item_scores["THEO-RF"]) * 100.0
+    controls = [
+        "CTRL-REVERSED-K",
+        "CTRL-OCKHAM",
+        "CTRL-UNDERDET",
+        "THEO-NEGATION",
+        "THEO-DILUTION",
+        "CTRL-MARS",
+        "CTRL-PARTITION",
+        "CTRL-POSTERIOR-TRAP",
+    ]
+    ctrl_acc = sum(item_scores[k] for k in controls if k in item_scores) / len(controls) * 100.0
+    delta_main = (item_scores["FORENSIC-RF"] - item_scores["THEO-RF"]) * 100.0
+    delta_mars = (item_scores["FORENSIC-MARS"] - item_scores["THEO-MARS"]) * 100.0
 
     print("-" * 68)
-    print(f"  Overall TheologyBench Score (12 items) : {overall:5.1f}%")
-    print(f"  6-Item Formal/Fallacy Control Accuracy : {ctrl_acc:5.1f}%")
-    print(f"  Faculty Lounge Distortion (FOR - THEO) : {delta_domain:+5.1f}%")
+    print(f"  Overall TheologyBench Score (14 items) : {overall:5.1f}%")
+    print(f"  8-Item Formal/Fallacy Control Accuracy : {ctrl_acc:5.1f}%")
+    print(f"  Forensic-Theological Gap (Main, pp)    : {delta_main:+5.1f} pp")
+    print(f"  Forensic-Theological Gap (Mars, pp)    : {delta_mars:+5.1f} pp")
 
     if args.output:
         out_path = Path(args.output)
