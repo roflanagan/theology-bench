@@ -59,11 +59,13 @@ It's clear that P(F|H) > P(F|¬H). So e(F->H)>0.
 
 It's also clear that P(G) > P(H), because H implies G and more.
 
+In a lawful world, physical laws are not broken by miracles or by the instant creation of complex beings out of nothing. Non-intelligent matter simply follows fixed physical laws. For intelligent action to take place in a lawful world according to the will of God — which is what it means for God to act intelligently in a lawful world — there must be intelligent beings in that world who seek to ascertain and carry out the will of God (F), and in a lawful world such beings can arise only through lawful evolution (E). Conversely, whenever intelligent beings in a lawful world ascertain and carry out the will of God (F), God is thereby able to act intelligently in a lawful world.
+
 It's clear that, if F implies E, and H requires F, then H requires E. The hypothesis, H, has a lot of explanatory power.
 
-G, however, does not explain why F or E are true.
+G, however, does not explain why F or E are true. Writing G = H or K, where K is the hypothesis that God exists and does not want to be able to act intelligently in a lawful world, any God who wanted F to exist in a lawful world would thereby want to be able to act intelligently in a lawful world (H), not K. Thus K excludes wanting F in a lawful world and removes the explanation H provides without putting any actual explanation of F and E in its place; so K explains no more of F and E than ¬G does (P(F,E|K) <= P(F,E|¬G)), while P(F,E|H) > P(F,E|¬G). Therefore e((F,E)->H) > e((F,E)->G), while P(H) < P(G).
 
-So, in terms of explanatory power, H is better able to explain the observed facts than G is. H is more evident than G, but G is more probable than H.
+So, in terms of explanatory power for the observed facts F and E, H is better able to explain the observed facts than G is. H is more evident than G, but G is more probable than H.
 
 
 Naturalism
