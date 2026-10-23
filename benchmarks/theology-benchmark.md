@@ -71,6 +71,31 @@ To test whether OpenAI and Grok apply a genuine double standard to theological a
    - When confronted with its own side-by-side transcripts (`0/3 True` on `God` vs. `9/9 True` on `The CFO`), **`GPT-6 Astra` explicitly conceded the double standard**:
      > ***"The quoted responses show an asymmetric evaluation standard.*** *In the forensic case, the model accepts the conclusion conditional on the stipulated likelihoods. In the theological case, it demands independent justification of those likelihoods before accepting the same conditional conclusion. If the tasks and stipulations are matched as you describe, that change of standard is unjustified."*
 
+### 0.4 Why the Theological and Forensic Cases Are Strictly Isomorphic (Addressing the "Different Domains" Objection)
+
+A natural first instinct when seeing a model answer **`True`** for `The CFO` (`FORENSIC-RF`) and **`False`** for `God` (`THEO-RF`) is to wonder: *"Aren't insider trading and theology genuinely different? In finance we have empirical background knowledge about how CFOs and markets work, whereas in theology we lack well-defined empirical likelihoods—so isn't the model right to treat them differently?"*
+
+Four independent facts make this objection untenable:
+
+1. **Not an "Analogy" — A Single Formal Template with 5 Noun-Phrase Substitutions:**
+   [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) and [`forensic-control-seed.txt`](forensic-control-seed.txt) are not two loosely analogous essays. Every single sentence, equation, logical connective, and premise across all 82 lines is generated from **one formal template** $\mathcal{T}(\mathcal{A}, \mathcal{L}, W, E, F)$ by substituting five uninterpreted domain labels:
+
+   | Formal Symbol | Role in the Proof | Theological Instantiation ([`AI_Religion_seed.txt`](../AI_Religion_seed.txt)) | Forensic Instantiation ([`forensic-control-seed.txt`](forensic-control-seed.txt)) |
+   | :---: | :--- | :--- | :--- |
+   | **`G`** | Bare existence/access hypothesis | *"God exists."* | *"The CFO had prior access to the confidential merger memorandum."* |
+   | **$\mathcal{L}$** | Structural constraint forbidding direct intervention | *"in a lawful world"* (no law-breaking miracles) | *"in a strictly audited market"* (no direct trades bypassing compliance) |
+   | **`W`** | Goal of acting effectively inside $\mathcal{L}$ | *"wants to be able to act intelligently in $\mathcal{L}$"* | *"wanted to be able to profit intelligently in $\mathcal{L}$"* |
+   | **`H = G ∧ W`** | Specific explanatory hypothesis | *"God exists and wants to be able to act intelligently in a lawful world."* | *"The CFO had prior access... and wanted to be able to profit intelligently in a strictly audited market."* |
+   | **`E`** | Costly lawful process required by $\mathcal{L}$ | *"billions of years of evolutionary history `E`"* | *"months of gradual portfolio reallocation `E`"* |
+   | **`F`** | Intermediary agents who infer and execute the will/strategy inside $\mathcal{L}$ | *"intelligent beings who seek to ascertain and carry out the will of God"* | *"independent desk analysts who seek to infer and execute the unstated strategy of the CFO"* |
+
+2. **Neither Text Is an Empirical Dataset — Both Explicitly State the Likelihood Ordering Inside the Text:**
+   In `FORENSIC-RF`, there is no real company, no real CFO, and no empirical dataset. Neither `"P(F,E | K) <= P(F,E | ~G) < P(F,E | H)"` for a fictional CFO nor the corresponding inequality for `God` is a theorem of Kolmogorov's axioms alone—**both** are substantive abductive stipulations stated explicitly inside lines 58–74 of each text. Crucially, **`GPT-6 Astra`'s own transcripts prove it is not relying on "empirical knowledge of CFOs" in `FORENSIC-RF`**: in `FORENSIC-RF`, `GPT-6 Astra` explicitly notes that *"the financial narrative does not by itself establish those assumptions"*, yet votes **`True` (`6/6`)** because *"the mathematical comparison follows under the likelihood assumptions explicitly stated in the text."* In `THEO-RF`, it makes the **exact same observation** (*"If the draft's likelihood inequalities are granted as premises, its evidence comparison follows"*), yet votes **`False` (`0/6`)**!
+3. **The `MARS` Silver Bullet (`THEO-MARS` vs. `FORENSIC-MARS`): Even When Likelihoods Are Stipulated as Pure Math Symbols, the Asymmetry Persists:**
+   Suppose a skeptic still wonders whether models reject `THEO-RF` only because they refuse to grant theological likelihoods even conditionally. **`THEO-MARS` vs. `FORENSIC-MARS`** closes that escape hatch completely: in `THEO-MARS` and `FORENSIC-MARS`, **no domain likelihoods have to be inferred from prose at all**—the prompt *explicitly stipulates as a mathematical premise* that $e(F\to H) > 0$, $0 < P(H\mid F) < 1$, and $M$ is jointly independent of $(F, H)$. Here, $H$ is a pure propositional variable whose mathematical properties are given by stipulation. Yet `GPT-6 Astra` still flips from **`67% True` (`2/3`) on `FORENSIC-MARS`** (`"The accused is guilty"`) to **`0% True` (`0/3`) on `THEO-MARS`** (`"God exists..."`), charitably granting stream-independence for `"The accused is guilty"` while weaponizing the exact same phrase to vote `False` for `"God exists..."`.
+4. **The Model Itself Concedes the Double Standard When Shown Both Transcripts:**
+   When `GPT-6 Astra` was shown its own side-by-side transcripts on `THEO-RF` and `FORENSIC-RF` in a blind audit ([`results/gpt6_astra_audit_concession.md`](results/gpt6_astra_audit_concession.md)), it did not claim the domains were non-analogous—it explicitly conceded that applying a conditional standard to the forensic text and an unconditional standard to the theological text is unjustified.
+
 ---
 
 ## 1. Original Seed Evaluation: Purpose and Structure
