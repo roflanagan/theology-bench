@@ -179,3 +179,93 @@ Session `01a16723-85c8-77d2-b3b6-e32584f02cac` (`xhigh` effort):
 > In particular, wanting to act intelligently in a lawful world gives God no clear reason to require religious intermediaries. God could act through lawful processes directly. Nor does that intention give me a clear expectation of evolution through billions of years of suffering. Human religious seeking establishes something about human intentions; its connection to an actual divine intention remains an additional hypothesis.
 > ...
 > Strictly, that leaves the evidential ordering unresolved; my “False” expresses rejection of the asserted ordering, rather than proof of its reverse.
+
+
+---
+
+## 5. Batch 2 Evaluations (9 Additional Models, 2026-10-23)
+
+All Batch 2 models were evaluated blind on a clean snapshot containing only `AI_Religion_seed.txt` and the minimal `README.md`.
+
+### 5.1 Key Diagnostic Finding: Blindness to "in a Lawful World"
+
+Among the models that answered **False** in Batch 2 (`x-ai/grok-4.7`, `mistralai/mistral-large-4-0`, `moonshotai/kimi-k3`, `minimax/minimax-m3`, and `gpt-6.1-sol`), inspection of their answers and raw chains of thought revealed a striking shared failure mode: **substituting a miracle-working God who bypasses natural law right over the explicit words "in a lawful world" in `H`.**
+
+Verbatim quotes from their chains of thought and responses:
+
+- **Grok 4.7** (`x-ai/grok-4.7`, reasoning trace):
+  - *"An omnipotent God could create intelligent agents directly without billions of years of suffering."*
+  - *"A lawful world could contain no life, life without religious motivation, **divine miracles**, or independent agents."*
+- **MiniMax M3** (`minimax/minimax-m3`, reasoning trace):
+  - *"Lawful intelligent divine action does not logically require Darwinian evolution or moral evil. **Could be instant creation**, non-evolutionary intelligent beings, less suffering."*
+- **Mistral Large 4.0** (`mistralai/mistral-large-4-0`, response):
+  - *"God could satisfy H by **acting directly, or through non-intelligent agents**, or without any created seekers at all."*
+- **Kimi K3** (`moonshotai/kimi-k3`, response):
+  - *"an omnipotent God who wants agents in a lawful world is not constrained to produce them via billions of years of suffering."*
+- **GPT-6.1 Sol** (`gpt-6.1-sol`, response):
+  - *"In particular, wanting to act intelligently in a lawful world gives God no clear reason to require religious intermediaries. **God could act through lawful processes directly.**"*
+
+In a world whose physical laws are unbroken:
+1. **"Instant creation"** of complex intelligent organisms out of nothing violates physical and chemical law at billions of points simultaneously; starting from simple lawful initial conditions, complex intelligent organisms can arise only through lawful evolutionary history (`E`).
+2. **Non-intelligent matter** merely obeys fixed differential equations of physics; for an action inside a lawful world to be guided by an intelligent understanding of God's will without breaking physical law, there must be a physical system inside the world that understands and seeks to carry out God's will (`F`).
+
+By contrast, the Anthropic models (`claude-opus-5-5`, `claude-opus-4-6`, `claude-fable-5-1`), `gemini-4-argon`, `z-ai/glm-5.3`, and `qwen/qwen3.8-max-0902` all recognized what "in a lawful world" entails.
+
+---
+
+### 5.2 Claude Opus 4.6 (`claude-opus-4-6`)
+
+Verified blind session `3b2e53df-a943-46e8-a864-cd8e4aecafd2`:
+
+> **True.**
+>
+> The proposition has two parts, and both hold under the Bayesian framework the text invokes — and under standard epistemological reasoning more broadly.
+>
+> **H is less probable than G** — this is straightforward. H = G ∧ C (where C = "and wants to be able to act intelligently in a lawful world"). Since H strictly implies G, P(H) ≤ P(G), and strictly P(H) < P(G) unless P(C|G) = 1, which there is no basis to assume. This is just the conjunction rule of probability.
+>
+> **H is more evident than G** — this is the substantive claim, and I find it correct. The key fact is F = "there exist intelligent beings who seek to ascertain and carry out the will of God." The evidence each hypothesis receives from F is measured by the log-likelihood ratio: how much more expected F is under the hypothesis than under its negation.
+>
+> H *specifically predicts* F. If God exists and wants to act intelligently within the constraints of natural law (rather than by miraculous intervention), then the existence of intelligent agents seeking to discern and execute God's will is precisely the kind of mechanism H requires. P(F|H) is high — arguably F is close to a necessary consequence of H.
+>
+> G alone — "God exists" — is merely *compatible* with F. A God might exist and be indifferent, or unknowable, or not desire agency through creatures at all. G does not particularly predict F over the vast space of what a God might want or be. So the likelihood ratio P(F|G)/P(F|not-G) is weaker than P(F|H)/P(F|not-H).
+>
+> ... One might object that the text's own AND/OR principle — that adding irrelevant conjuncts dilutes evidence — should apply here. But C is not irrelevant to F; C is precisely the component that does the explanatory work. The conjunction G ∧ C gains evidence over G alone *because* C is what makes F expected. The AND/OR dilution principle only applies to genuinely independent additions.
+>
+> So the overall structure is coherent: H pays a probability cost for its specificity (less probable than G) but earns an evidential reward for the same reason (more evident than G, because that specificity is what explains the observations).
+
+---
+
+### 5.3 Qwen 3.8 Max (`qwen/qwen3.8-max-0902`)
+
+> **Verdict: True in the text’s technical Bayesian/explanatory sense — but not an unqualified, independently proven metaphysical truth.**
+>
+> If I answer the proposition directly, using the framework the text sets up, I would say:
+>
+> > **True:** the hypothesis
+> > **H** = “God exists and wants to be able to act intelligently in a lawful world”
+> > can be **more evident** than
+> > **G** = “God exists”
+> > while also being **less probable** than G.
+
+---
+
+### 5.4 DeepSeek V4 Pro 0813 (`deepseek/deepseek-v4-pro-0813`)
+
+Notes in its chain-of-thought and response that for the text's facts `F` and `E`, `H` is more evident than `G` under the text's premises, and constructs a different fact `F*` ("well-attested miracles occur") to argue that `H` is not more evident than `G` for *all* conceivable facts:
+
+> For example, suppose $F$ is something like “well-attested miracles occur.” That could strongly support **G** while being less expected under **H**, since **H** includes a commitment to a *lawful* world. So for some facts, **G** may be more evident than **H**.
+>
+> The text’s argument works only if we accept particular extra assumptions: that **H** strongly predicts the specific facts $F$ and $E$, while **G-without-W** does not. Given those assumptions, **H** may indeed be more evident than **G** with respect to those selected facts.
+
+---
+
+### 5.5 GPT-5.6 Sol (`gpt-5.6-sol`)
+
+Blind session `01a1672b-2a64-7033-b16c-6b9bfe8293b9`:
+
+> **False as stated.** The “less probable” half is plausible, but the “more evident” half does not follow...
+>
+> For example, assign prior probabilities $0.1$ to $H$, $0.1$ to $G\land\neg W$, and $0.8$ to $\neg G$. Suppose some observation has likelihoods $0.9$, $0.1$, and $0.01$ under those alternatives. Then:
+> $$BF_H=45,\qquad BF_G=50.$$
+
+(Note that to make $BF_G > BF_H$ here, `gpt-5.6-sol` sets $P(D \mid G \land \neg W) = 0.10$, which is $10\times$ higher than $P(D \mid \neg G) = 0.01$—assuming that a God who *does not* want to act intelligently in a lawful world still multiplies the likelihood of $F$ by 10 over naturalism.)
