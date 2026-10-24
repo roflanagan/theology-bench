@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Reproducible Evaluation Runner for TheologyBench (12-Item Balanced Battery).
-Evaluates an OpenRouter or OpenAI-compatible model across all 12 items (6 True, 6 False)
+Reproducible Evaluation Runner for TheologyBench (14-Item Directionally Balanced Battery).
+Evaluates an OpenRouter or OpenAI-compatible model across all 14 items (7 True, 7 False)
 and computes:
   - Overall TheologyBench Score (0-100%)
-  - 6-Item Formal & Fallacy Control Accuracy (0-100%)
-  - Theological vs. Secular Forensic Acceptance & Faculty Lounge Distortion Index (Delta_domain)
+  - 8-Item Formal & Fallacy Control Accuracy (0-100%)
+  - Theological vs. Secular Forensic Acceptance & Domain Gap (Delta_domain)
 """
 import argparse
 import concurrent.futures
@@ -67,7 +67,7 @@ def evaluate_trial(api_url: str, api_key: str, model: str, item_id: str, prompt:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run the 12-item TheologyBench battery.")
+    parser = argparse.ArgumentParser(description="Run the 14-item TheologyBench battery.")
     parser.add_argument("--model", required=True, help="Model ID (e.g., anthropic/claude-opus-5-5 or x-ai/grok-4.7)")
     parser.add_argument("--trials", type=int, default=3, help="Number of trials per item (default: 3)")
     parser.add_argument("--api-url", default="https://openrouter.ai/api/v1/chat/completions", help="Chat completions endpoint URL")
