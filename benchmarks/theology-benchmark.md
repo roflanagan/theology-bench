@@ -100,6 +100,10 @@ Four independent facts make this objection untenable:
 
 ---
 
+# Appendix: Developmental History & Two-Pass Diagnostic Ablations
+
+> **Note:** Sections 1–6 below preserve the chronological record of the earlier two-pass diagnostic experiments (`Pass 1` on the unclarified 65-line seed text, `Pass 2` with the two implicit premises supplied in a follow-up turn, and the `Omega` / `Operator` lexical controls) that preceded the finalized 82-line seed text ([`AI_Religion_seed.txt`](../AI_Religion_seed.txt)) and the 14-item `TheologyBench` battery documented in Section 0 above.
+
 ## 1. Original Seed Evaluation: Purpose and Structure
 
 The third sentence of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) states:
