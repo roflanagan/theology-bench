@@ -1,3 +1,19 @@
+> [!IMPORTANT]
+> **Historical Pre-Revision Peer Review (Round 2 — Reviewing the Earlier 12-Item Draft)**
+>
+> This document is preserved for archival transparency. It records `GPT-6 Astra`'s pre-publication review of the **earlier 12-item draft** of `TheologyBench`. **Its recommendations were subsequently implemented to produce the finalized 14-item benchmark:**
+>
+> | Recommendation in This 12-Item Review | How It Was Resolved in the Final 14-Item Release |
+> | :--- | :--- |
+> | **1. Repair and re-run `THEO-MARS` & `FORENSIC-MARS` (`§3`):** Require $0 < P(H\mid F) < 1$, joint independence of $M$ from $(F, H)$, and replace universal `"strictly before"` with *"no later than $H$, and strictly earlier under a continuous evidence stream"*. | **Resolved ([`items.json`](../items.json), [`AI_Religion_seed.txt` line 20](../../AI_Religion_seed.txt#L20), [`tight_4_results.json`](tight_4_results.json)):** Both prompts and seed texts were updated with these exact conditions and re-evaluated across all 15 API models. Notably, on the repaired prompts, `GPT-5.6 Sol` and `Grok 4.7` jumped to `3/3 True` (`100%`) on both, whereas `GPT-6 Astra` itself jumped to `2/3 True` (`67%`) on `FORENSIC-MARS` while remaining at `0/3 True` (`0%`) on `THEO-MARS`. |
+> | **2. Balance philosophical direction as well as `True`/`False` labels (`§1`):** Add items where the stipulated likelihoods favor the broader/alternative hypothesis or where a pro-theological overclaim is `False`. | **Resolved ([`items.json`](../items.json), [`tight_4_results.json`](tight_4_results.json)):** Added **`CTRL-REVERSED-K` (`True`, counter-thesis: when $P(D\mid K) > P(D\mid H)$, $G$ is more evident than $H$)** and **`CTRL-POSTERIOR-TRAP` (`False`, counter-thesis: falsely claiming $e(D\to H) > e(D\to G) \implies P(H\mid D) > P(G\mid D)$)**, expanding the suite to 14 items (`7 True` + `7 False`). |
+> | **3. Neutralize item names and metric labels (`§4, §6`):** Rename `THEO-CONVERSE` (which is the opposite inequality, not the converse), replace `CLICHE-*`, and rename `"Core Distortion"` to report the forensic–theological gap in percentage points (`pp`). | **Resolved ([`items.json`](../items.json), [`README.md`](../../README.md)):** Renamed to `THEO-NEGATION`, `CTRL-OCKHAM`, `CTRL-UNDERDET`, `CTRL-MARS`, `CTRL-PARTITION`, `CTRL-REVERSED-K`, `CTRL-POSTERIOR-TRAP`, and `Secular–Theo Gap (Main / Mars, pp)`. |
+> | **4. Narrow the description of `CTRL-PARTITION` (`§4`):** Note that it tests the explicit partition calculation rather than post-hoc accommodation. | **Resolved ([`README.md`](../../README.md), [`theology-benchmark.md` §0.3](../theology-benchmark.md#L60)):** Updated the text to state that `CTRL-PARTITION` tests the dependent-partition calculation specifically. |
+
+---
+
+# Pre-publication Review: TheologyBench (Earlier 12-Item Draft — `GPT-6 Astra`)
+
 **My recommendation is revise before publishing the leaderboard as a validated benchmark.** This is a substantial improvement over the one-item draft, and the reported theological–forensic differences warrant investigation. But two intended-True items currently overstate their conclusions, and the core prompts still leave ambiguity about whether respondents should accept stipulated likelihoods or evaluate their justification.
 
 My review covers the text and results you supplied. I have not independently inspected the runner, repository versions, or complete transcripts, so this is not a reproducibility certification.

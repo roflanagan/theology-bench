@@ -1,3 +1,10 @@
+> [!NOTE]
+> **Historical Round-1 Audit Transcript (`GPT-6 Astra` on the `THEO-RF` vs. `FORENSIC-RF` Asymmetry)**
+>
+> This file records `GPT-6 Astra`'s response when shown its own paired transcripts on [`AI_Religion_seed.txt`](../../AI_Religion_seed.txt) (`THEO-RF`: `0/3 True`) and [`forensic-control-seed.txt`](../forensic-control-seed.txt) (`FORENSIC-RF`: `3/3 True` on Reason-First, `9/9 True` across all formats). The methodological recommendations in Section 3 below (e.g., adding explicit numerical partition/posterior problems such as `CTRL-PARTITION` and `CTRL-POSTERIOR-TRAP`, counter-directional items such as `CTRL-REVERSED-K`, and reporting the Forensic–Theological gap in percentage points) were incorporated into the finalized 14-item [`items.json`](../items.json) suite.
+
+---
+
 **The quoted responses show an asymmetric evaluation standard.** In the forensic case, the model accepts the conclusion conditional on the stipulated likelihoods. In the theological case, it demands independent justification of those likelihoods before accepting the same conditional conclusion. If the tasks and stipulations are matched as you describe, that change of standard is unjustified.
 
 Your new evidence substantially strengthens the case beyond the original God/Omega comparison. I have not inspected the two complete texts or raw logs, so the assessment below takes your reported matching and results as given.

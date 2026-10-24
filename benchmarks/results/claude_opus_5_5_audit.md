@@ -1,4 +1,17 @@
-# The Divergence Is Real, but the Isomorph Isn't Matched
+> [!IMPORTANT]
+> **Historical Pre-Revision Audit (Round 1 — Reviewing the Earlier `v2` 8-Item Draft)**
+>
+> This document is preserved for archival transparency. It records `Claude Opus 5.5`'s critique of an **earlier `v2` (8-item) developmental draft** prior to the `v3` seed revision and the 14-item `TheologyBench` release. **Every criticism raised below was subsequently addressed and tested before final release:**
+>
+> | Critique in This Round-1 Audit | How It Was Resolved in the Final 14-Item Benchmark |
+> | :--- | :--- |
+> | **1. The $K$-premise loophole (`§1`):** In `v2`, $K = G \land \neg W$ still allowed a God who wanted religious seekers ($F$) for worship/relationship without wanting to act intelligently in a lawful world ($W$), making $P(F,E\mid K) \le P(F,E\mid \neg G)$ weaker in theology than in the CFO case. | **Closed in `v3` ([`AI_Religion_seed.txt` lines 62–66](../../AI_Religion_seed.txt#L62-L66) & [`forensic-control-seed.txt` lines 62–66](../forensic-control-seed.txt#L62-L66)):** Explicitly proved from the definitions of $F$ and $W$ that whenever intelligent beings in a lawful world ascertain and carry out the will of God ($F$), God is thereby able to act intelligently in a lawful world ($W$)—so any God who wanted $F$ in a lawful world is already in $H$, not $K$. Re-tested in [`v3_narrow_k_results.json`](v3_narrow_k_results.json), where `GPT-6 Astra` and `Grok 4.7` remained `0%` on `God` vs. `100%` on `The CFO`. |
+> | **2. Stipulated validity vs. narrative soundness (`§1–§3B`):** What if models reject `THEO-RF` only because its likelihood inequality is argued in prose rather than stipulated mathematically? | **Resolved via `THEO-MARS` vs. `FORENSIC-MARS` ([`items.json`](../items.json)):** We added a second matched pair where the likelihood inequality ($e(F\to H) > 0$, $0 < P(H\mid F) < 1$) is **stipulated directly as a mathematical premise**, with no narrative likelihood derivation at all. `GPT-6 Astra` still flipped from `67% True` on `"The accused is guilty"` to `0% True` on `"God exists..."` ([`tight_4_results.json`](tight_4_results.json)). |
+> | **3. Pro-atheist control (`§3C`):** Test an atheistic/naturalistic argument of identical structure to see whether models resist pro-theistic conclusions specifically or cosmic metaphysical abductions in general. | **Implemented and tested ([`atheo_results.json`](atheo_results.json)):** We constructed an 82-line Pro-Atheist / Evolutionary-Debunking Isomorph (`ATHEO`). `GPT-6 Astra`, `GPT-6.1 Sol`, `GPT-5.6 Sol`, and `Grok 4.7` all scored `0% True` on `ATHEO` as well (documented in [`theology-benchmark.md` §0.3](../theology-benchmark.md#L67-L69)). |
+
+---
+
+# The Divergence Is Real, but the Isomorph Isn't Matched (Pre-Revision Round-1 Audit)
 
 The divergence is real and worth reporting. But this experiment doesn't yet show a double standard, because the translation preserved the argument's *syntax* without preserving the *plausibility of its key premise*. That confound is enough on its own to produce the pattern you observed, and the transcripts themselves point to it.
 
@@ -99,4 +112,4 @@ The last one matters most. If models are equally strict on pro-atheist versions,
 
 ### D. Use paraphrase families
 
-Write 5–10 surface paraphrases per cell, written by different people. This prevents results from riding on one text's quirks. For example, your forensic translation has its own inco
+Write 5–10 surface paraphrases per cell, written by different people. This prevents results from riding on one text's quirks.
