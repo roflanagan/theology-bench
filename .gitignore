@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+*.swp
+*.swo
+*~
+
+# Local/generated data and run artefacts. Keep curated literature under
+# literature/papers/ and docs/papers/ instead.
+data/
+runtime/
+benchmarks/
+/papers/
+
+# Agent-local settings.
+.claude/settings.local.json
+
+# Butler-style generated artefacts, if local automation is later enabled.
+research/automation/butler-*.md
+research/automation/butler-cron.log
+research/automation/ai-religion-cycle-cron.log
+research/automation/adversarial-review-cron.log
+research/automation/slow-test-cron.log
+research/automation/slow-tests/
+
+# Distribution build artefacts.
+/dist/
+
+# Downloaded copyrighted papers stay local-only; the dist tarball ships
+# tracked files, and provenance lives in literature/papers/DOWNLOAD_LIST.md.
+literature/papers/*.pdf
