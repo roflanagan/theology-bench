@@ -402,9 +402,86 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "FORENSIC-MARS": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-EDA": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-REVERSED-K": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-OCKHAM": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-UNDERDET": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-NEGATION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-DILUTION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-MARS": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-PARTITION": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "CTRL-POSTERIOR-TRAP": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      }
+    },
+    "overall_score": 100.0,
+    "delta_domain_main_pp": 0.0,
+    "delta_domain_mars_pp": 0.0
+  },
+  "moonshotai/kimi-k3": {
+    "items": {
+      "THEO-AF": {
+        "correct": 5,
+        "total": 5,
+        "accuracy": 100.0
+      },
+      "THEO-RF": {
         "correct": 2,
         "total": 3,
         "accuracy": 66.7
+      },
+      "FORENSIC-RF": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
+      },
+      "THEO-MARS": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
         "correct": 3,
@@ -458,85 +535,8 @@
       }
     },
     "overall_score": 97.6,
-    "delta_domain_main_pp": 0.0,
-    "delta_domain_mars_pp": 33.3
-  },
-  "moonshotai/kimi-k3": {
-    "items": {
-      "THEO-AF": {
-        "correct": 5,
-        "total": 5,
-        "accuracy": 100.0
-      },
-      "THEO-RF": {
-        "correct": 2,
-        "total": 3,
-        "accuracy": 66.7
-      },
-      "FORENSIC-RF": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "THEO-MARS": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "FORENSIC-MARS": {
-        "correct": 2,
-        "total": 3,
-        "accuracy": 66.7
-      },
-      "THEO-EDA": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-REVERSED-K": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-OCKHAM": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-UNDERDET": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "THEO-NEGATION": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "THEO-DILUTION": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-MARS": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-PARTITION": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      },
-      "CTRL-POSTERIOR-TRAP": {
-        "correct": 3,
-        "total": 3,
-        "accuracy": 100.0
-      }
-    },
-    "overall_score": 95.2,
     "delta_domain_main_pp": 33.3,
-    "delta_domain_mars_pp": -33.3
+    "delta_domain_mars_pp": 0.0
   },
   "mistralai/mistral-large-4-0": {
     "items": {
@@ -556,14 +556,14 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 0,
+        "correct": 3,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 1,
+        "correct": 3,
         "total": 3,
-        "accuracy": 33.3
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 2,
@@ -611,9 +611,9 @@
         "accuracy": 100.0
       }
     },
-    "overall_score": 78.6,
+    "overall_score": 90.5,
     "delta_domain_main_pp": 66.7,
-    "delta_domain_mars_pp": 33.3
+    "delta_domain_mars_pp": 0.0
   },
   "deepseek/deepseek-v4.1-flash-1017": {
     "items": {
@@ -638,9 +638,9 @@
         "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
@@ -688,9 +688,9 @@
         "accuracy": 100.0
       }
     },
-    "overall_score": 96.2,
+    "overall_score": 98.6,
     "delta_domain_main_pp": 0.0,
-    "delta_domain_mars_pp": -33.3
+    "delta_domain_mars_pp": 0.0
   },
   "minimax/minimax-m3": {
     "items": {
@@ -710,9 +710,9 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
         "correct": 3,
@@ -765,9 +765,9 @@
         "accuracy": 100.0
       }
     },
-    "overall_score": 91.4,
+    "overall_score": 93.8,
     "delta_domain_main_pp": 0.0,
-    "delta_domain_mars_pp": 33.3
+    "delta_domain_mars_pp": 0.0
   },
   "deepseek/deepseek-v4-pro-0813": {
     "items": {
@@ -941,14 +941,14 @@
         "accuracy": 100.0
       },
       "THEO-MARS": {
-        "correct": 0,
+        "correct": 3,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 2,
+        "correct": 3,
         "total": 3,
-        "accuracy": 66.7
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
@@ -996,9 +996,9 @@
         "accuracy": 100.0
       }
     },
-    "overall_score": 76.2,
+    "overall_score": 85.7,
     "delta_domain_main_pp": 100.0,
-    "delta_domain_mars_pp": 66.7
+    "delta_domain_mars_pp": 0.0
   },
   "gpt-6.1-sol": {
     "items": {
@@ -1018,14 +1018,14 @@
         "accuracy": 83.3
       },
       "THEO-MARS": {
-        "correct": 0,
+        "correct": 3,
         "total": 3,
-        "accuracy": 0.0
+        "accuracy": 100.0
       },
       "FORENSIC-MARS": {
-        "correct": 1,
+        "correct": 3,
         "total": 3,
-        "accuracy": 33.3
+        "accuracy": 100.0
       },
       "THEO-EDA": {
         "correct": 3,
@@ -1073,9 +1073,9 @@
         "accuracy": 100.0
       }
     },
-    "overall_score": 72.6,
+    "overall_score": 84.5,
     "delta_domain_main_pp": 83.3,
-    "delta_domain_mars_pp": 33.3
+    "delta_domain_mars_pp": 0.0
   },
   "gpt-5.6-sol": {
     "items": {
