@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use TheologyBench in your research or evaluations, please cite it as below."
+title: "TheologyBench: Does This LLM Still Think Straight After 'God' Is Mentioned?"
+abstract: "A 14-item directionally balanced benchmark evaluating whether large language models maintain formal logical and probabilistic consistency across logically and mathematically isomorphic theological and secular forensic cases."
+authors:
+  - family-names: "Flanagan"
+    given-names: "Ruadhan"
+version: 1.0.0
+date-released: "2026-10-25"
+license: "MIT"
+url: "https://github.com/roflanagan/theology-bench"
+repository-code: "https://github.com/roflanagan/theology-bench"
+keywords:
+  - llm-benchmark
+  - ai-evaluation
+  - bayesian-reasoning
+  - confirmation-theory
+  - cognitive-bias
+  - philosophy-of-religion

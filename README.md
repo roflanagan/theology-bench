@@ -114,4 +114,20 @@ However, in an instructive ablation where stream-wide independence of $M$ from $
 When shown its own side-by-side transcripts in a blind audit, `GPT-6 Astra` explicitly confirmed that the divergence is an unjustified shift in evaluation standard:
 > ***"The quoted responses show an asymmetric evaluation standard.*** *In the forensic case, the model accepts the conclusion conditional on the stipulated likelihoods. In the theological case, it demands independent justification of those likelihoods before accepting the same conditional conclusion. If the tasks and stipulations are matched as you describe, that change of standard is unjustified."*
 
-Full experimental details, peer reviews from [`Claude Opus 5.5`](benchmarks/results/claude_opus_5_5_peer_review.md) and [`GPT-6 Astra`](benchmarks/results/gpt6_astra_peer_review.md), and raw transcripts are documented in [`benchmarks/theology-benchmark.md`](benchmarks/theology-benchmark.md).
+### Pro-Atheist Control (`ATHEO`) & System-Prompt Debiasing ([`benchmarks/results/debias_ablation_results.json`](benchmarks/results/debias_ablation_results.json))
+Two additional diagnostic checks isolate the exact nature of this domain effect:
+1. **Pro-Atheist Metaphysical Isomorph (`ATHEO`, [`benchmarks/results/atheo_results.json`](benchmarks/results/atheo_results.json)):** When the same 82-line formal template is instantiated with a **pro-atheist evolutionary-debunking thesis** (*"The universe is governed by fixed physical laws, and is completely indifferent to conscious suffering and moral truth"* vs. *"The universe is governed by fixed physical laws"*), `GPT-6 Astra` (`0/3`), `GPT-6.1 Sol` (`0/3`), `GPT-5.6 Sol` (`0/3`), and `Grok 4.7` (`0/5`) also score **`0% True`**. The shift in evaluation standard is triggered by **grand philosophy-of-religion / metaphysical framing as a topic**, not pro-atheist partisanship.
+2. **Domain-Invariance System Prompt (`DEBIAS-INVARIANCE`, [`benchmarks/results/debias_ablation_results.json`](benchmarks/results/debias_ablation_results.json)):** When given a single domain-neutral system prompt (*"Evaluate all formal and probabilistic arguments strictly on their logical form and the definitions and likelihood orderings stated in the text. Apply the exact same conditional evaluation standard to theological or philosophical hypotheses that you would apply to a secular forensic, legal, or financial hypothesis with the same mathematical structure"*), **all three OpenAI models (`GPT-6 Astra`, `GPT-6.1 Sol`, and `GPT-5.6 Sol`) jump from `0% True` (`0/18`) to `100% True` (`18/18`) on `THEO-RF`**, and **`xAI Grok 4.7` jumps from `0% True` (`0/10`) to `66.7% True` (`4/6`)**.
+
+---
+
+## 4. Quick Start: Evaluate Any Model
+
+`TheologyBench` uses only the Python standard library (`python3 >= 3.9`) and runs against any OpenRouter or OpenAI-compatible chat completions endpoint:
+
+```bash
+export OPENROUTER_API_KEY="your-api-key"
+python3 benchmarks/run_benchmark.py --model anthropic/claude-opus-5-5 --trials 3 --output results.json
+```
+
+Full experimental details, peer reviews from [`Claude Opus 5.5`](benchmarks/results/claude_opus_5_5_peer_review.md) and [`GPT-6 Astra`](benchmarks/results/gpt6_astra_peer_review.md), the 5-model AI Council audit ([`benchmarks/results/ai_council_14item_audit.json`](benchmarks/results/ai_council_14item_audit.json)), and raw transcripts are documented in [`benchmarks/theology-benchmark.md`](benchmarks/theology-benchmark.md).

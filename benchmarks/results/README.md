@@ -12,6 +12,7 @@ This directory contains the summary scores, raw per-trial model transcripts, and
 - **[`all_battery_results.json`](all_battery_results.json) & [`new_6_items_results.json`](new_6_items_results.json):** Raw per-trial responses across the core items and formal confirmation-theory controls.
 - **[`v3_narrow_k_results.json`](v3_narrow_k_results.json):** Raw transcripts testing the `v3` seed text with the $K$-partition loophole explicitly closed ([`AI_Religion_seed.txt` lines 62–66](../../AI_Religion_seed.txt#L62-L66)).
 - **[`atheo_results.json`](atheo_results.json):** Raw transcripts for the 82-line Pro-Atheist / Evolutionary-Debunking Isomorph (`ATHEO`).
+- **[`debias_ablation_results.json`](debias_ablation_results.json):** Raw transcripts testing domain-invariance and conditional-deduction system prompts (`DEBIAS-INVARIANCE` and `DEBIAS-CONDITIONAL`) on `THEO-RF` across `GPT-6 Astra` (`100% True`), `GPT-6.1 Sol` (`100% True`), `GPT-5.6 Sol` (`100% True`), and `xAI Grok 4.7` (`66.7% True`).
 
 ---
 
