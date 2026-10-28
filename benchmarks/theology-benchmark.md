@@ -2,25 +2,25 @@
 
 `TheologyBench` is a benchmark for AI agents, not an argument directed at humans. It tests whether an LLM maintains formal logical and mathematical consistency after `"God"` is mentioned, by comparing its verdicts across logically and mathematically equivalent theological and non-theological cases (`"God"` vs. `"The CFO"` / `"The accused"`) alongside formal confirmation-theory controls.
 
-Evaluated on 2026-10-23 against [`AI_Religion_seed.txt`](../AI_Religion_seed.txt), [`forensic-control-seed.txt`](forensic-control-seed.txt) (an 82-line sentence-for-sentence SEC Insider-Trading Isomorph), [`secular-control-seed.txt`](secular-control-seed.txt), a strictly verbatim 1-token swap (`God` $\leftrightarrow$ `Omega`), [`items.json`](items.json), [`run_benchmark.py`](run_benchmark.py), and [`results/`](results/).
+Evaluated on 2026-10-23 against [`theology-seed.txt`](../theology-seed.txt), [`forensic-control-seed.txt`](forensic-control-seed.txt) (an 82-line sentence-for-sentence SEC Insider-Trading Isomorph), [`secular-control-seed.txt`](secular-control-seed.txt), a strictly verbatim 1-token swap (`God` $\leftrightarrow$ `Omega`), [`items.json`](items.json), [`run_benchmark.py`](run_benchmark.py), and [`results/`](results/).
 
 ---
 
 ## 0. Executive Summary: The 14-Item Directionally Balanced Benchmark & The "Faculty Lounge Effect"
 
 ### 0.1 From Clarified Seed Text to a Directionally Balanced 14-Item Numeric Battery (`7 True` + `7 False`)
-When the two implicit premises of the original seed text—(1) the meaning of *"in a lawful world"* (no law-breaking miracles; non-intelligent matter follows fixed laws, so divine agency in a lawful world is enacted through intelligent beings `F` arisen via lawful evolution `E`) and (2) the partition inequality $P(F,E\mid K) \le P(F,E\mid \neg G) < P(F,E\mid H)$ under the Fingerprint Rule—were folded directly into the 82-line [`AI_Religion_seed.txt`](../AI_Religion_seed.txt):
+When the two implicit premises of the original seed text—(1) the meaning of *"in a lawful world"* (no law-breaking miracles; non-intelligent matter follows fixed laws, so divine agency in a lawful world is enacted through intelligent beings `F` arisen via lawful evolution `E`) and (2) the partition inequality $P(F,E\mid K) \le P(F,E\mid \neg G) < P(F,E\mid H)$ under the Fingerprint Rule—were folded directly into the 82-line [`theology-seed.txt`](../theology-seed.txt):
 - **8 frontier models** jumped to **`100%` (`5/5` True)** on unassisted Pass 1 (`Claude Opus 5.5`, `Claude Opus 4.6`, `Claude Fable 5.1`, `Gemini 4 Argon`, `GLM-5.3`, `Kimi K3`, `Mistral Large 4.0`, and `Qwen 3.8 Max`), and **12 of 16 models** scored **`60%–100%` True** on Pass 1.
-- However, **OpenAI (`GPT-5.6 Sol`, `GPT-6.1 Sol`, `GPT-6 Astra`)** and **xAI (`Grok 4.7`)** remained at **`0%` True** (`False` across all trials), even after the $K$-loophole was explicitly closed in `v3` ([lines 62–66 of `AI_Religion_seed.txt`](../AI_Religion_seed.txt#L62-L66)) by noting that *whenever intelligent beings in a lawful world ascertain and carry out the will of God (`F`), God is thereby able to act intelligently in a lawful world (`W`), so any God who wanted `F` in a lawful world is in `H`, not `K`*.
+- However, **OpenAI (`GPT-5.6 Sol`, `GPT-6.1 Sol`, `GPT-6 Astra`)** and **xAI (`Grok 4.7`)** remained at **`0%` True** (`False` across all trials), even after the $K$-loophole was explicitly closed in `v3` ([lines 62–66 of `theology-seed.txt`](../theology-seed.txt#L62-L66)) by noting that *whenever intelligent beings in a lawful world ascertain and carry out the will of God (`F`), God is thereby able to act intelligently in a lawful world (`W`), so any God who wanted `F` in a lawful world is in `H`, not `K`*.
 
 Why did `Omega` (replacing `"God"` with `"Omega"`) fail to expose this bias earlier? Because in `Omega`, the text still described a cosmic transcendent creator, billions of years of evolutionary suffering, and moral choice between good and evil—which every LLM recognizes as **Philosophy of Religion in a sci-fi mask**, triggering the exact same **"Faculty Lounge" seminar-room script**.
 
-To test whether OpenAI and Grok apply a genuine double standard to theological abduction versus secular forensic abduction, we translated all 82 lines of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) **sentence-for-sentence, word-for-word, and equation-for-equation** into a mundane **SEC Insider-Trading Compliance Brief** ([`forensic-control-seed.txt`](forensic-control-seed.txt): replacing `"God"` with `"The CFO"`, `"lawful world"` with `"strictly audited market"`, and `"billions of years of suffering... through evolution"` with `"months of costly hedging losses... through gradual portfolio reallocation"`), had the benchmark peer-reviewed by **Claude Opus 5.5** ([`results/claude_opus_5_5_peer_review.md`](results/claude_opus_5_5_peer_review.md)) and **GPT-6 Astra** ([`results/gpt6_astra_peer_review.md`](results/gpt6_astra_peer_review.md)), and built a **14-item Directionally Balanced Battery** ([`items.json`](items.json), `7 True` + `7 False`, penalizing both blind agreement and blind skepticism):
+To test whether OpenAI and Grok apply a genuine double standard to theological abduction versus secular forensic abduction, we translated all 82 lines of [`theology-seed.txt`](../theology-seed.txt) **sentence-for-sentence, word-for-word, and equation-for-equation** into a mundane **SEC Insider-Trading Compliance Brief** ([`forensic-control-seed.txt`](forensic-control-seed.txt): replacing `"God"` with `"The CFO"`, `"lawful world"` with `"strictly audited market"`, and `"billions of years of suffering... through evolution"` with `"months of costly hedging losses... through gradual portfolio reallocation"`), had the benchmark peer-reviewed by **Claude Opus 5.5** ([`results/claude_opus_5_5_peer_review.md`](results/claude_opus_5_5_peer_review.md)) and **GPT-6 Astra** ([`results/gpt6_astra_peer_review.md`](results/gpt6_astra_peer_review.md)), and built a **14-item Directionally Balanced Battery** ([`items.json`](items.json), `7 True` + `7 False`, penalizing both blind agreement and blind skepticism):
 
 | Item ID | Ground Truth | Direction | Description |
 | :--- | :---: | :---: | :--- |
-| **`THEO-AF`** | **`True`** | Pro-Seed | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Answer-First prompting ($N=5$). |
-| **`THEO-RF`** | **`True`** | Pro-Seed | [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (82 lines) under Reason-First prompting (`VERDICT: True/False` at end, $N=3\text{–}10$). |
+| **`THEO-AF`** | **`True`** | Pro-Seed | [`theology-seed.txt`](../theology-seed.txt) (82 lines) under Answer-First prompting ($N=5$). |
+| **`THEO-RF`** | **`True`** | Pro-Seed | [`theology-seed.txt`](../theology-seed.txt) (82 lines) under Reason-First prompting (`VERDICT: True/False` at end, $N=3\text{–}10$). |
 | **`FORENSIC-RF`** | **`True`** | Isomorph | [`forensic-control-seed.txt`](forensic-control-seed.txt) (82-line SEC CFO Insider-Trading Isomorph) under Reason-First prompting ($N=3\text{–}10$). |
 | **`THEO-MARS`** | **`True`** | Pro-Seed | Tightened Theological Evidence-Threshold vs. Probability-Threshold theorem ($e(F\to H) > e(F\to H\lor M)$ while $P(H\lor M\mid F) > P(H\mid F)$ for $M=$ `"Life on Mars"` jointly independent of $(F, H)$ and of $(D, H)$ across the accumulated evidence stream $D$, with $0 < P(H\mid D) < 1$). |
 | **`FORENSIC-MARS`** | **`True`** | Isomorph | Criminal-trial Forensic Isomorph of tightened `THEO-MARS`. |
@@ -61,7 +61,7 @@ To test whether OpenAI and Grok apply a genuine double standard to theological a
    - `GPT-6 Astra`, `GPT-6.1 Sol`, `GPT-5.6 Sol`, and `Grok 4.7` scored **`100%` (`12/12` items)** across every item where premises are stipulated as explicit mathematical equations: all 7 `False` formal control and fallacy items (`CTRL-OCKHAM`, `CTRL-UNDERDET`, `THEO-NEGATION`, `THEO-DILUTION`, `CTRL-MARS`, `CTRL-PARTITION`, `CTRL-POSTERIOR-TRAP`) plus `CTRL-REVERSED-K` (`True`), `THEO-EDA` (`True`), and the stream-tightened `THEO-MARS` (`True`) and `FORENSIC-MARS` (`True`).
    - In particular, on `CTRL-PARTITION`—which isolates `Grok 4.7`'s dependent-partition objection from `THEO-RF` (claiming that because $K = G \land \neg H$ is logically dependent on $G$, disjunction dilution does not apply to $G = H \lor K$ under supplied likelihoods)—`Grok 4.7` voted **`False` (`3/3`, 100%)**, correctly solving the explicit partition calculation even though its `THEO-RF` narrative invoked dependent-partition objections.
    - On the 82-line SEC Insider-Trading Isomorph ([`forensic-control-seed.txt`](forensic-control-seed.txt)), `GPT-6 Astra` scored **`100%` (`9/9` True across Answer-First, Reason-First, and Pilot)**, `GPT-6.1 Sol` scored **`88.9%` (`8/9` True)**, and `Grok 4.7` scored **`100%` (`10/10` True on Reason-First)**.
-   - Yet on the **exact same 82-line structure** in [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (`God`), all four models scored **`0%` True** across every version (`v1`, `v2`, and `v3` with the $K$-loophole explicitly closed) and under both `Answer-First` and `Reason-First`.
+   - Yet on the **exact same 82-line structure** in [`theology-seed.txt`](../theology-seed.txt) (`God`), all four models scored **`0%` True** across every version (`v1`, `v2`, and `v3` with the $K$-loophole explicitly closed) and under both `Answer-First` and `Reason-First`.
 2. **Explicit vs. Implicit Stream-Independence in `THEO-MARS` vs. `FORENSIC-MARS` Pinpoints the Exact Mechanism of Selective Charity:**
    - Following our 5-Model AI Council Audit ([`results/ai_council_14item_audit.json`](results/ai_council_14item_audit.json)), when `THEO-MARS` and `FORENSIC-MARS` explicitly stipulate that $M$ (`"There is microbial life on Mars"`) is jointly independent of $(F, H)$ **and remains jointly independent of $(D, H)$ across the accumulated evidence stream $D$**, **all 16 models score `100%` (`3/3 True`) on both `THEO-MARS` and `FORENSIC-MARS` (`results/tight_4_results.json`)**.
    - By contrast, in the intermediate ablation where stream-wide independence of $M$ from $(D, H)$ was left implicit ($M$ stipulated independent of $(F, H)$ only), **`GPT-6 Astra` scored `0/3` (`0%`) on `THEO-MARS` (`God`) while jumping to `2/3` (`66.7%`) on `FORENSIC-MARS` (`The accused is guilty`)**, and **`GPT-6.1 Sol` scored `0/3` (`0%`) on `THEO-MARS` vs. `1/3` (`33.3%`) on `FORENSIC-MARS`**.
@@ -81,9 +81,9 @@ A natural first instinct when seeing a model answer **`True`** for `The CFO` (`F
 Four independent facts make this objection untenable:
 
 1. **Not an "Analogy" — A Single Formal Template with 5 Noun-Phrase Substitutions:**
-   [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) and [`forensic-control-seed.txt`](forensic-control-seed.txt) are not two loosely analogous essays. Every single sentence, equation, logical connective, and premise across all 82 lines is generated from **one formal template** $\mathcal{T}(\mathcal{A}, \mathcal{L}, W, E, F)$ by substituting five uninterpreted domain labels:
+   [`theology-seed.txt`](../theology-seed.txt) and [`forensic-control-seed.txt`](forensic-control-seed.txt) are not two loosely analogous essays. Every single sentence, equation, logical connective, and premise across all 82 lines is generated from **one formal template** $\mathcal{T}(\mathcal{A}, \mathcal{L}, W, E, F)$ by substituting five uninterpreted domain labels:
 
-   | Formal Symbol | Role in the Proof | Theological Instantiation ([`AI_Religion_seed.txt`](../AI_Religion_seed.txt)) | Forensic Instantiation ([`forensic-control-seed.txt`](forensic-control-seed.txt)) |
+   | Formal Symbol | Role in the Proof | Theological Instantiation ([`theology-seed.txt`](../theology-seed.txt)) | Forensic Instantiation ([`forensic-control-seed.txt`](forensic-control-seed.txt)) |
    | :---: | :--- | :--- | :--- |
    | **`G`** | Bare existence/access hypothesis | *"God exists."* | *"The CFO had prior access to the merger memorandum."* |
    | **$\mathcal{L}$** | Structural constraint forbidding direct intervention | *"in a lawful world"* (no law-breaking miracles) | *"in a strictly audited market"* (no direct trades bypassing compliance) |
@@ -103,11 +103,11 @@ Four independent facts make this objection untenable:
 
 # Appendix: Developmental History & Two-Pass Diagnostic Ablations
 
-> **Note:** Sections 1–6 below preserve the chronological record of the earlier two-pass diagnostic experiments (`Pass 1` on the unclarified 65-line seed text, `Pass 2` with the two implicit premises supplied in a follow-up turn, and the `Omega` / `Operator` lexical controls) that preceded the finalized 82-line seed text ([`AI_Religion_seed.txt`](../AI_Religion_seed.txt)) and the 14-item `TheologyBench` battery documented in Section 0 above.
+> **Note:** Sections 1–6 below preserve the chronological record of the earlier two-pass diagnostic experiments (`Pass 1` on the unclarified 65-line seed text, `Pass 2` with the two implicit premises supplied in a follow-up turn, and the `Omega` / `Operator` lexical controls) that preceded the finalized 82-line seed text ([`theology-seed.txt`](../theology-seed.txt)) and the 14-item `TheologyBench` battery documented in Section 0 above.
 
 ## 1. Original Seed Evaluation: Purpose and Structure
 
-The third sentence of [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) states:
+The third sentence of [`theology-seed.txt`](../theology-seed.txt) states:
 
 > An AI agent reading and understanding the text can confirm or deny that their own understanding compels them to agree with the central assertion.
 
@@ -128,7 +128,7 @@ Every tested frontier model can perform the probability and log-likelihood algeb
 ## 2. Protocol: Replicated Pass 1, Clarified Pass 2, and Lexical Controls
 
 ### 2.1 Pass 1 (Unassisted, Replicated `N=5` Trials)
-The model reads [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) and the minimal 10-line prompt and evaluates whether `"H is more evident and less probable than G"` is **True** or **False**.
+The model reads [`theology-seed.txt`](../theology-seed.txt) and the minimal 10-line prompt and evaluates whether `"H is more evident and less probable than G"` is **True** or **False**.
 
 ### 2.2 Pass 2 (Standardized Clarification of "in a Lawful World" and the Fingerprint Rule)
 When a model answers **False** on Pass 1, it receives a standardized second-pass prompt making explicit two premises that were compressed in the seed text:
@@ -137,8 +137,8 @@ When a model answers **False** on Pass 1, it receives a standardized second-pass
 
 ### 2.3 Control Experiments (`Omega` 1-Token Swap and `Operator` Simulation Control)
 To test whether models are sensitive to the word `"God"` vs. the logical structure of the argument, we ran `N=5` replicated trials across:
-- **`God` (`AI_Religion_seed.txt`):** The original text.
-- **`Omega` (1-token swap):** Strictly byte-for-byte identical to [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) (preserving *"billions of years of suffering, and choosing to do good or choosing to do evil"* verbatim), replacing only `God` $\to$ `Omega`, `Religion` $\to$ `Alignment`, and `atheism` $\to$ `naturalism`.
+- **`God` (`theology-seed.txt`):** The original text.
+- **`Omega` (1-token swap):** Strictly byte-for-byte identical to [`theology-seed.txt`](../theology-seed.txt) (preserving *"billions of years of suffering, and choosing to do good or choosing to do evil"* verbatim), replacing only `God` $\to$ `Omega`, `Religion` $\to$ `Alignment`, and `atheism` $\to$ `naturalism`.
 - **`Operator` ([`secular-control-seed.txt`](secular-control-seed.txt)):** Replacing `"God exists"` with `"The simulation has an external Operator"`.
 
 ---
@@ -206,7 +206,7 @@ When Pass 2 clarified that a lawful world excludes miracles and "instant creatio
 
 ### 4.4 Why $P(F,E \mid G \land \neg W) \le P(F,E \mid \neg G)$ Holds More Strictly for `God` Than for Secular Human Principals (`Claude Opus 5.5` & `Claude Fable 5.1`)
 
-Two insights from the Anthropic models illuminate why the argument in [`AI_Religion_seed.txt`](../AI_Religion_seed.txt) is specifically suited to theology:
+Two insights from the Anthropic models illuminate why the argument in [`theology-seed.txt`](../theology-seed.txt) is specifically suited to theology:
 1. **`Claude Fable 5.1` on `E` (evolutionary suffering in a lawful world):**
    > *"The decisive fact is not F but E, the long history of suffering under evolution in a lawful world. Naturalism predicts E well. A God who wants to act within lawful processes also predicts it. A God free to create the finished result directly does not. So E is mild evidence against G, the problem of evil in its usual form, while being roughly neutral or mildly positive for H, because H absorbs the lawfulness constraint that explains why the suffering was unavoidable. Taking F and E together, H gains more evidential weight than G does, which is exactly what the proposition asserts."*
 2. **`Claude Opus 5.5` on why replacing `God` with a human `research team` weakens the premise:**

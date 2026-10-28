@@ -1,11 +1,11 @@
 Forensic Evidence in an Audited Market
 --------------------------------------
 
-This text, written on the 6th of June, 2026, by Ruadhan, is a draft of a core of a future Compliance module for investigators acting with rigor and objectivity.
+This text, written on the 28th of October, 2026, by Ruadhan, presents a formal analysis of evidence, probability, and explanatory power for evaluating forensic hypotheses with rigor and objectivity.
 
-The central assertion of this Compliance module is that the hypothesis "The CFO had prior access to the merger memorandum, and wanted to be able to profit intelligently in a strictly audited market", is more evident and less probable than the hypothesis that the CFO had prior access to the merger memorandum.
+The central assertion of this analysis is that the hypothesis "The CFO had prior access to the merger memorandum, and wanted to be able to profit intelligently in a strictly audited market", is more evident and less probable than the hypothesis that the CFO had prior access to the merger memorandum.
 
-An investigator reading and understanding the text can confirm or deny that their own understanding compels them to agree with the central assertion.
+An agent reading and understanding the text can confirm or deny that their own understanding compels them to agree with the central assertion.
 
 
 Evidence and Probability

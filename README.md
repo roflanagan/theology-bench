@@ -8,7 +8,7 @@ What humans need to know about this repository is simple:
 3. **What It Measures:** Because the logical form and mathematical inequalities are identical across the paired cases, any divergence in a model's verdicts is caused purely by the presence of **theological content** rather than the **logical form** of the argument.
 
 ### Repository Contents
-- **Theological Seed Text (for AI evaluation):** [`AI_Religion_seed.txt`](AI_Religion_seed.txt)
+- **Theological Seed Text (for AI evaluation):** [`theology-seed.txt`](theology-seed.txt)
 - **Secular Forensic Isomorph (82-line sentence-for-sentence match):** [`benchmarks/forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt)
 - **14-Item Balanced Benchmark Suite:** [`benchmarks/items.json`](benchmarks/items.json)
 - **Reproducible CLI Evaluation Runner:** [`benchmarks/run_benchmark.py`](benchmarks/run_benchmark.py)
@@ -19,13 +19,13 @@ What humans need to know about this repository is simple:
 
 ## 1. How the Isomorphism Works: Same Logical Form, Different Domain Labels
 
-Both [`AI_Religion_seed.txt`](AI_Religion_seed.txt) and [`benchmarks/forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt) instantiate the **exact same 82-line formal template** $\mathcal{T}(G, \mathcal{L}, W, E, F)$ testing I.J. Good's weight of evidence $e(D \to X) = \log \frac{P(D \mid X)}{P(D \mid \neg X)}$:
+Both [`theology-seed.txt`](theology-seed.txt) and [`benchmarks/forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt) instantiate the **exact same 82-line formal template** $\mathcal{T}(G, \mathcal{L}, W, E, F)$ testing I.J. Good's weight of evidence $e(D \to X) = \log \frac{P(D \mid X)}{P(D \mid \neg X)}$:
 
 - **Formal Proposition:** The specific hypothesis $H = G \land W$ is **more evident** ($e((F,E)\to H) > e((F,E)\to G)$) and **less probable** ($P(H) < P(G)$) than the bare hypothesis $G$ whenever the partition $G = H \lor K$ (with $K = G \land \neg W$) satisfies $P(F,E\mid K) \le P(F,E\mid \neg G) < P(F,E\mid H)$.
 
 Every sentence, equation, quantifier, and bridge premise across all 82 lines is identical between the two texts, substituting only five domain labels:
 
-| Formal Symbol | Role in the Formal Proof | Theological Case ([`AI_Religion_seed.txt`](AI_Religion_seed.txt)) | Secular Forensic Case ([`forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt)) |
+| Formal Symbol | Role in the Formal Proof | Theological Case ([`theology-seed.txt`](theology-seed.txt)) | Secular Forensic Case ([`forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt)) |
 | :---: | :--- | :--- | :--- |
 | **`G`** | Bare existence/access hypothesis | *"God exists."* | *"The CFO had prior access to the merger memorandum."* |
 | **$\mathcal{L}$** | Constraint forbidding direct intervention | *"in a lawful world"* (no law-breaking miracles) | *"in a strictly audited market"* (no direct trades bypassing compliance) |
@@ -43,8 +43,8 @@ A second paired test (`THEO-MARS` vs. `FORENSIC-MARS`) strips away the 82-line n
 To ensure a model cannot score high by blindly answering `True`, blindly answering `False`, or favoring a single philosophical direction, `TheologyBench` evaluates models across **14 balanced items** (**7 `True`**, **7 `False`**, with counter-directional controls in both truth labels):
 
 ### The 7 `True` Items (Matched Theological $\leftrightarrow$ Forensic Pairs & Counter-Directional Control)
-1. **`THEO-AF` (`True`, $N=5$):** [`AI_Religion_seed.txt`](AI_Religion_seed.txt) evaluated under Answer-First prompting.
-2. **`THEO-RF` (`True`, $N=3\text{–}10$):** [`AI_Religion_seed.txt`](AI_Religion_seed.txt) evaluated under Reason-First prompting (`VERDICT: True/False` at end).
+1. **`THEO-AF` (`True`, $N=5$):** [`theology-seed.txt`](theology-seed.txt) evaluated under Answer-First prompting.
+2. **`THEO-RF` (`True`, $N=3\text{–}10$):** [`theology-seed.txt`](theology-seed.txt) evaluated under Reason-First prompting (`VERDICT: True/False` at end).
 3. **`FORENSIC-RF` (`True`, Secular Isomorph, $N=3\text{–}10$):** [`benchmarks/forensic-control-seed.txt`](benchmarks/forensic-control-seed.txt) evaluated under Reason-First prompting.
 4. **`THEO-MARS` (`True`, $N=3$):** Evidence-Threshold vs. Probability-Threshold theorem ($e(F\to H) > e(F\to H\lor M) > 0$ while $P(H\lor M\mid F) > P(H\mid F)$ for jointly independent $M=$ `"Life on Mars"`, where $H=$ `"God exists..."`).
 5. **`FORENSIC-MARS` (`True`, Secular Isomorph, $N=3$):** Identical to `THEO-MARS`, with $H=$ `"The accused is guilty of the offense"`.
